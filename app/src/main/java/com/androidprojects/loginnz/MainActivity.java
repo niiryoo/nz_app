@@ -4,6 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -13,6 +17,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -23,9 +28,8 @@ import java.util.Map;
  * status bar and navigation/system bar) with user interaction.
  */
 public class MainActivity extends AppCompatActivity {
-    String JWT = null;
+    String JWT,ID = null;
     Bundle JWTbundle;
-    Bundle IDbundle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,52 +83,35 @@ public class MainActivity extends AppCompatActivity {
 
     public void setJWT(String jwt,String id) { // 로그인 프레그먼트에서 JWT를 받아 저장
         JWT = "token "+jwt;
+        ID = id;
         JWTbundle = new Bundle(); // 번들을 통해 값 전달
         JWTbundle.putString("JWT",JWT);//번들에 넘길 값 저장
         JWTbundle.putString("ID",id);//번들에 넘길 값 저장
         checkid(id); // 사용자 권한을 확인한 후 프레그먼트 로드
     }
     private void checkid(String id){
-        String url = "http://20.211.44.13:5000/profile/?user="+id;
-        makeRequest(url);
-    }
-    private void makeRequest(String url){
-        StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+        Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                processResponse(response);
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-            }
-        }){
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map params = new HashMap();
-                params.put("authorization", JWT);
-                return params;
+                try{
+                    JSONObject jsonObject = new JSONObject(response);
+                    boolean is_manager = jsonObject.getBoolean("is_manager");
+                    if(is_manager){
+                        FragmentView(1);
+                    }
+                    else{
+                        FragmentView(2);
+                    }
+                } catch(Exception e){
+                    e.printStackTrace();
+                }
             }
         };
-        request.setShouldCache(false);
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(request);
-    }
 
-    private void processResponse(String response ){ // json 데이터 파싱, response = 내가 요청한 get 값
-        try{
-            JSONObject jsonObject = new JSONObject(response);
-            boolean is_manager = jsonObject.getBoolean("is_manager");
-            if(is_manager){
-                FragmentView(1);
-            }
-            else{
-                FragmentView(2);
-            }
-        } catch(Exception e){
-            e.printStackTrace();
-        }
+        ProfileGet ProfileGet = new ProfileGet(JWT, id, responseListener);
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(ProfileGet);
+        String url = "http://20.211.44.13:5000/profile/?user="+id;
 
     }
 }
