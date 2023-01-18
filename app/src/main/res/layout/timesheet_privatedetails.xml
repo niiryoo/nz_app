@@ -46,12 +46,12 @@
                 <TextView
                     android:layout_width="92dp"
                     android:layout_height="wrap_content"
-                    android:text="CODE"
+                    android:text="ID"
                     android:textAlignment="textStart"
                     android:textSize="16sp"></TextView>
 
                 <TextView
-                    android:id="@+id/tv_pd_code"
+                    android:id="@+id/tv_pd_id"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
                     android:textAlignment="center"
