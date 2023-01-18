@@ -1,8 +1,6 @@
 package com.androidprojects.loginnz;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.RequestQueue;
@@ -20,7 +19,6 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,11 +29,9 @@ public class PrivateDetailTimesheetFrag_admin extends Fragment {
 
     private Button btn_ok;
     TextView id, name, email, phone;
-    TextView mon_start, mon_end, mon_dep, mon_note;
     String JWT, ID;
     RecyclerView recyc_private;
-    List<String> startTime_list = new ArrayList<String>();
-
+    RecyclerViewAdapter adapter;
 
 
     @Override
@@ -48,7 +44,16 @@ public class PrivateDetailTimesheetFrag_admin extends Fragment {
         email = rootView.findViewById(R.id.tv_pd_email);
         phone = rootView.findViewById(R.id.tv_pd_phone);
         btn_ok = rootView.findViewById(R.id.btn_pt_ok);
+
+
         recyc_private = rootView.findViewById(R.id.recyc_private);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        recyc_private.setLayoutManager(linearLayoutManager);
+
+        adapter = new RecyclerViewAdapter();
+        recyc_private.setAdapter(adapter);
+
 
 
 
@@ -74,22 +79,21 @@ public class PrivateDetailTimesheetFrag_admin extends Fragment {
 
             }
         };
-
         ProfileGet profileGet = new ProfileGet(JWT, ID, profileListener);
         RequestQueue profilequeue = Volley.newRequestQueue(getContext());
         profilequeue.add(profileGet);
 
-       /** Response.Listener<String> timesheetListener = new Response.Listener<String>() {
+
+        Response.Listener<String> timesheetListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try{
                     JSONArray jsonArray = new JSONArray(response);
                     for(int i = 0; i < jsonArray.length(); i++){
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        String start = jsonObject.getString("start_time");
-                        startTime_list.add(start);
+                        adapter.addItem(jsonObject);
                     }
-                    mon_start.setText(startTime_list.get(0));
+                    adapter.notifyDataSetChanged();
                 } catch (JSONException e) {
                     e.printStackTrace();
 
@@ -99,7 +103,7 @@ public class PrivateDetailTimesheetFrag_admin extends Fragment {
         };
         TimesheetGet timesheetGet = new TimesheetGet(ID, JWT, timesheetListener);
         RequestQueue timesheetqueue = Volley.newRequestQueue(getContext());
-        timesheetqueue.add(timesheetGet);**/
+        timesheetqueue.add(timesheetGet);
 
 
 

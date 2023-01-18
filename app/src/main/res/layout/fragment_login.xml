@@ -20,6 +20,7 @@
             android:src="@drawable/logintwo"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"/>
+
         <EditText
             android:id="@+id/emp_id"
             android:layout_width="wrap_content"
@@ -30,7 +31,7 @@
             android:ems="10"
             android:hint="id"
             android:inputType="textPersonName"
-            android:text="test_user1" />
+            android:text="test_manager1" />
 
         <EditText
             android:id="@+id/emp_password"

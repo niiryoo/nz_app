@@ -65,8 +65,8 @@ public class adminESTAdapter extends RecyclerView.Adapter<adminESTAdapter.ViewHo
                 @Override
                 public void onClick(View view) {
                     MainActivity activity = (MainActivity) itemView.getContext();
+                    activity.tempid(ID.getText().toString());
                     activity.FragmentView(9);
-
                 }
             });
         }

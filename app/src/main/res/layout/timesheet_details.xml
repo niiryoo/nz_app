@@ -54,7 +54,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
                     android:textAlignment="center"
-                    android:id="@+id/td_emp_"
+                    android:id="@+id/td_id"
                     android:textSize="18sp"></TextView>
             </TableRow>
 
@@ -70,6 +70,7 @@
                     android:textSize="16sp"></TextView>
 
                 <TextView
+                    android:id="@+id/td_name"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
                     android:textAlignment="center"
@@ -88,6 +89,7 @@
                     android:textSize="16sp"></TextView>
 
                 <TextView
+                    android:id="@+id/td_email"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
                     android:textAlignment="center"
@@ -106,6 +108,7 @@
                     android:textSize="16sp"></TextView>
 
                 <TextView
+                    android:id="@+id/td_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
                     android:textAlignment="center"

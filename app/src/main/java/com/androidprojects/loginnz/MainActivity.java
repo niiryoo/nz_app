@@ -28,12 +28,13 @@ import java.util.Map;
  * status bar and navigation/system bar) with user interaction.
  */
 public class MainActivity extends AppCompatActivity {
-    String JWT,ID = null;
+    String JWT,ID, TEMP_ID= null;
     Bundle JWTbundle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        JWTbundle = new Bundle(); // 번들을 통해 값 전달
         FragmentView(0);
     }
 
@@ -78,16 +79,19 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 9: // empWorkDetailsFag
                 EmpWorkDetailsFag empWorkDetailsFag = new EmpWorkDetailsFag();
+                empWorkDetailsFag.setArguments(JWTbundle);
                 transaction.replace(R.id.parentView, empWorkDetailsFag).commit();
                 break;
 
         }
     }
-
+    public void tempid(String id){
+        TEMP_ID = id;
+        JWTbundle.putString("TEMP_ID",TEMP_ID);
+    }
     public void setJWT(String jwt,String id) { // 로그인 프레그먼트에서 JWT를 받아 저장
         JWT = "token "+jwt;
         ID = id;
-        JWTbundle = new Bundle(); // 번들을 통해 값 전달
         JWTbundle.putString("JWT",JWT);//번들에 넘길 값 저장
         JWTbundle.putString("ID",id);//번들에 넘길 값 저장
         checkid(id); // 사용자 권한을 확인한 후 프레그먼트 로드
