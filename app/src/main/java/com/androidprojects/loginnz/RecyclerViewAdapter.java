@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.time.Month;
+import java.time.Year;
 import java.util.ArrayList;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
@@ -34,8 +36,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }
 
         public void setItem(JSONObject item) throws JSONException  {
-            startTime.setText(item.getString("start_time"));
-            endTime.setText(item.getString("end_time"));
+            String start_time = item.getString("start_time");
+            String end_time = item.getString("end_time");
+            String form1 = start_time.substring(0,10);
+            String form2 = start_time.substring(11,16);
+            String form3 = end_time.substring(0,10);
+            String form4 = end_time.substring(11,16);
+            startTime.setText(form1+" "+form2);
+            endTime.setText(form3+" "+form4);
             depart.setText(item.getString("department_id"));
 
         }
