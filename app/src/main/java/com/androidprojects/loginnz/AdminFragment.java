@@ -45,6 +45,7 @@ public class AdminFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        makeRequest();
         setHasOptionsMenu(true);
         View rootView = inflater.inflate(R.layout.fragment_admin, container, false);
 
@@ -123,7 +124,7 @@ public class AdminFragment extends Fragment {
         requestQueue.add(request);
     }
 
-    private void processResponse(String response ){ // json 데이터 파싱, response = 내가 요청한 get 값
+    private void processResponse(String response){ // json 데이터 파싱, response = 내가 요청한 get 값
         try{
             JSONArray jsonArray = new JSONArray(response);
 
