@@ -38,8 +38,8 @@ import java.util.Map;
 public class EmpFragment extends Fragment {
     ArrayAdapter<CharSequence> arrayAdapter;
     Spinner spinner;
-    TextView hoursworked, mypage;
-    Button start, end, rest, restart;
+    TextView mypage;
+    Button start, end;
     String JWT, ID, DEPCODE = null;
     String url = "http://20.211.44.13:5000/department/";
     List<String> dep_list = new ArrayList<String>();
@@ -58,51 +58,19 @@ public class EmpFragment extends Fragment {
             }
         }
 
-        hoursworked = rootView.findViewById(R.id.hourswork);
-        hoursworked.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Dialog dialog = new Dialog(getContext());
-                dialog.setContentView(R.layout.timesheet);
-
-                // 총 일한시간 데이터 파싱해서 연결
-
-                Button btn_ok = dialog.findViewById(R.id.btn_ok_timeSheet);
-                btn_ok.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        dialog.dismiss();  // 팝업창 끄기
-                    }
-                });
-                dialog.show();
-            }
-        });
-        mypage = rootView.findViewById(R.id.myPage);
+        mypage = rootView.findViewById(R.id.myPage_amp);
         mypage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getContext(), "details 버튼 클릭되었음.", Toast.LENGTH_SHORT).show();
 
-                Dialog dialog = new Dialog(getContext());
-                dialog.setContentView(R.layout.details);
-
-                // details 데이터 파싱해서 연결
-
-                Button btn_ok = dialog.findViewById(R.id.btn_ok_details);
-                btn_ok.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        dialog.dismiss();  // 팝업창 끄기
-                    }
-                });
-                dialog.show();
+                MainActivity activity = (MainActivity) getActivity(); // 프래그먼트에서 메인엑티비티 접근
+                activity.FragmentView(7);
             }
         });
 
         start = rootView.findViewById(R.id.Start);
         end = rootView.findViewById(R.id.End);
-        rest = rootView.findViewById(R.id.rest);
-        restart = rootView.findViewById(R.id.Restart);
 
         start.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,7 +81,7 @@ public class EmpFragment extends Fragment {
                         try{
                             JSONObject jsonResponse = new JSONObject(response);
                             Toast.makeText(getContext(),jsonResponse.getString("start_time") , Toast.LENGTH_SHORT).show();
-                            } catch (JSONException ex) {
+                        } catch (JSONException ex) {
                             ex.printStackTrace();
 
                         }
@@ -131,7 +99,7 @@ public class EmpFragment extends Fragment {
         end.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //EditText note = rootView.findViewById(R.id.);
+                EditText note = rootView.findViewById(R.id.tv_issue);
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -145,9 +113,9 @@ public class EmpFragment extends Fragment {
                     }
                 };
 
-                //StartPost startpost = new StartPost(ID, JWT,note, responseListener);
+                StartPost startpost = new StartPost(ID, JWT, note.toString(), responseListener);
                 RequestQueue queue = Volley.newRequestQueue(getContext());
-                //queue.add(startpost);
+                queue.add(startpost);
                 start.setVisibility(View.VISIBLE);
                 end.setVisibility(View.INVISIBLE);
             }
