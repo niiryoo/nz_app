@@ -30,9 +30,10 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="68dp"
-            android:layout_height="85dp"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:background="@drawable/user_default" />
 
         <TableLayout
             android:layout_width="match_parent"
@@ -110,24 +111,6 @@
                     android:textSize="18sp"></TextView>
             </TableRow>
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="DEPART."
-                    android:textAlignment="textStart"
-                    android:textSize="16sp"></TextView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="19dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp"></TextView>
-            </TableRow>
-
 
         </TableLayout>
 
@@ -161,7 +144,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_pt_ok"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"

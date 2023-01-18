@@ -29,9 +29,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_span="8"
-                android:background="@drawable/timesheet_inside"
-                android:textAlignment="center"
-                android:textSize="18sp"></TextView>
+                android:text="요일"
+                android:textAlignment="viewStart"
+                android:textSize="20sp"></TextView>
 
         </TableRow>
 
@@ -42,8 +42,15 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:background="@drawable/timesheet_inside"
-                android:text="AM :"
+                android:layout_span="2"
+                android:text="startTime"
+                android:textAlignment="center"
+                android:textSize="18sp"></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="~"
                 android:textAlignment="center"
                 android:textSize="18sp"></TextView>
 
@@ -52,15 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_span="2"
-                android:background="@drawable/timesheet_inside"
-                android:textAlignment="center"
-                android:textSize="18sp"></TextView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/timesheet_inside"
-                android:text="~"
+                android:text="endText"
                 android:textAlignment="center"
                 android:textSize="18sp"></TextView>
 
@@ -68,17 +67,17 @@
                 android:id="@+id/tv_endTime_am"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:layout_span="2"
-                android:background="@drawable/timesheet_inside"
+                android:layout_span="3"
+                android:text="depart"
                 android:textAlignment="center"
                 android:textSize="18sp"></TextView>
 
             <TextView
                 android:id="@+id/tv_depart_am"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="44dp"
                 android:layout_span="2"
-                android:background="@drawable/timesheet_inside"
+                android:text="No Issue"
                 android:textAlignment="center"
                 android:textSize="18sp"></TextView>
         </TableRow>
@@ -89,9 +88,16 @@
 
             <TextView
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_span="2"
+                android:text="startTime"
+                android:textAlignment="center"
+                android:textSize="18sp"></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:background="@drawable/timesheet_inside"
-                android:text="PM :"
+                android:text="~"
                 android:textAlignment="center"
                 android:textSize="18sp"></TextView>
 
@@ -100,15 +106,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_span="2"
-                android:background="@drawable/timesheet_inside"
-                android:textAlignment="center"
-                android:textSize="18sp"></TextView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:background="@drawable/timesheet_inside"
-                android:text="~"
+                android:text="endText"
                 android:textAlignment="center"
                 android:textSize="18sp"></TextView>
 
@@ -116,8 +114,8 @@
                 android:id="@+id/tv_endTime_pm"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:layout_span="2"
-                android:background="@drawable/timesheet_inside"
+                android:layout_span="3"
+                android:text="depart"
                 android:textAlignment="center"
                 android:textSize="18sp"></TextView>
 
@@ -126,7 +124,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_span="2"
-                android:background="@drawable/timesheet_inside"
+                android:text="No Issue"
                 android:textAlignment="center"
                 android:textSize="18sp"></TextView>
         </TableRow>

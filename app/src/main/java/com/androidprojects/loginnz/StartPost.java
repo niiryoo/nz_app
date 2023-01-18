@@ -12,8 +12,7 @@ public class StartPost extends StringRequest {
     String JWT = null;
     private Map<String, String> map;
 
-    public StartPost(String userID, String jwt, String DEPCODE,
-                     Response.Listener<String> listener) {
+    public StartPost(String userID, String jwt, String DEPCODE, Response.Listener<String> listener) {
         super(Method.POST, url, listener, null);
         this.JWT = jwt;
         map = new HashMap<>();
@@ -21,6 +20,7 @@ public class StartPost extends StringRequest {
         map.put("department", DEPCODE);
         map.put("action", "start");
     }
+
     @Override
     protected Map<String, String> getParams() throws AuthFailureError{
         return map;

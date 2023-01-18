@@ -1,0 +1,1057 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:textAlignment="center">
+
+    <TextView
+        android:id="@+id/tv_details_p"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Details"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="10dp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_details_p">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:background="@drawable/user_default" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="92dp"
+                    android:layout_height="wrap_content"
+                    android:text="CODE"
+                    android:textAlignment="textStart"
+                    android:textSize="16sp"></TextView>
+
+                <TextView
+                    android:id="@+id/tv_pd_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="19dp"
+                    android:textAlignment="center"
+                    android:textSize="18sp"></TextView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NAME"
+                    android:textAlignment="textStart"
+                    android:textSize="16sp"></TextView>
+
+                <TextView
+                    android:id="@+id/tv_pd_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="19dp"
+                    android:textAlignment="center"
+                    android:textSize="18sp"></TextView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="EMAIL"
+                    android:textAlignment="textStart"
+                    android:textSize="16sp"></TextView>
+
+                <TextView
+                    android:id="@+id/tv_pd_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="19dp"
+                    android:textAlignment="center"
+                    android:textSize="18sp"></TextView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PHONE"
+                    android:textAlignment="textStart"
+                    android:textSize="16sp"></TextView>
+
+                <TextView
+                    android:id="@+id/tv_pd_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="19dp"
+                    android:textAlignment="center"
+                    android:textSize="18sp"></TextView>
+            </TableRow>
+
+
+        </TableLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="date~date(7days)"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="24sp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="500dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TableLayout
+                    android:id="@+id/tableLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:stretchColumns="*"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/timesheet_mon"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="8"
+                            android:text="MON"
+                            android:textAlignment="viewStart"
+                            android:textSize="20sp"></TextView>
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:text="startTime"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="~"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_startTime_am_mon"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:text="endText"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_endTime_am_mon"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="3"
+                            android:text="depart"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_depart_am_mon"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_span="2"
+                            android:text="No Issue"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_span="2"
+                            android:text="startTime"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:text="~"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_startTime_pm_mon"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:text="endText"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_endTime_pm_mon"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="3"
+                            android:text="depart"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_depart_pm_mon"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:text="No Issue"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+                    </TableRow>
+
+
+                </TableLayout>
+
+                <TableLayout
+                    android:id="@+id/tableLayout_tue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:stretchColumns="*"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/timesheet_tue"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="8"
+                            android:text="TUE"
+                            android:textAlignment="viewStart"
+                            android:textSize="20sp"></TextView>
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:text="startTime"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="~"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_startTime_am_tue"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:text="endText"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_endTime_am_tue"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="3"
+                            android:text="depart"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_depart_am_tue"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_span="2"
+                            android:text="No Issue"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_span="2"
+                            android:text="startTime"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:text="~"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_startTime_pm_tue"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:text="endText"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_endTime_pm_tue"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="3"
+                            android:text="depart"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_depart_pm_tue"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:text="No Issue"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_startTime_pm_wed"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:text="endText"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+                    </TableRow>
+
+
+                </TableLayout>
+
+                <TableLayout
+                    android:id="@+id/tableLayout_wed"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:stretchColumns="*"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/timesheet_wed"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="8"
+                            android:text="요일"
+                            android:textAlignment="viewStart"
+                            android:textSize="20sp"></TextView>
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:text="startTime"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="~"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_startTime_am_wed"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:text="endText"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_endTime_am_wed"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="3"
+                            android:text="depart"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_depart_am_wed"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_span="2"
+                            android:text="No Issue"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_span="2"
+                            android:text="startTime"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:text="~"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_endTime_pm_wed"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="3"
+                            android:text="depart"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_depart_pm_wed"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:text="No Issue"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+                    </TableRow>
+
+
+                </TableLayout>
+
+                <TableLayout
+                    android:id="@+id/tableLayout_tur"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:stretchColumns="*"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/timesheet_tur"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="8"
+                            android:text="요일"
+                            android:textAlignment="viewStart"
+                            android:textSize="20sp"></TextView>
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:text="startTime"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="~"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_startTime_am_tur"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:text="endText"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_endTime_am_tur"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="3"
+                            android:text="depart"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_depart_am_tur"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_span="2"
+                            android:text="No Issue"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_span="2"
+                            android:text="startTime"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:text="~"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_startTime_pm_tur"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:text="endText"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_endTime_pm_tur"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="3"
+                            android:text="depart"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_depart_pm_tur"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:text="No Issue"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+                    </TableRow>
+
+
+                </TableLayout>
+
+                <TableLayout
+                    android:id="@+id/tableLayout_fri"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:stretchColumns="*"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/timesheet_fri"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="8"
+                            android:text="요일"
+                            android:textAlignment="viewStart"
+                            android:textSize="20sp"></TextView>
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:text="startTime"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="~"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_startTime_am_fri"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:text="endText"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_endTime_am_fri"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="3"
+                            android:text="depart"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_depart_am_fri"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_span="2"
+                            android:text="No Issue"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_span="2"
+                            android:text="startTime"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:text="~"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_startTime_pm_fri"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:text="endText"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_endTime_pm_fri"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="3"
+                            android:text="depart"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_depart_pm_fri"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:text="No Issue"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+                    </TableRow>
+
+
+                </TableLayout>
+
+                <TableLayout
+                    android:id="@+id/tableLayout_Sat"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:stretchColumns="*"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/timesheet_sat"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="8"
+                            android:text="요일"
+                            android:textAlignment="viewStart"
+                            android:textSize="20sp"></TextView>
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:text="startTime"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="~"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_startTime_am_sat"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:text="endText"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_endTime_am_sat"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="3"
+                            android:text="depart"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_depart_am_sat"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_span="2"
+                            android:text="No Issue"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_span="2"
+                            android:text="startTime"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:text="~"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_startTime_pm_sat"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:text="endText"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_endTime_pm_sat"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="3"
+                            android:text="depart"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_depart_pm_sat"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:text="No Issue"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+                    </TableRow>
+
+
+                </TableLayout>
+
+                <TableLayout
+                    android:id="@+id/tableLayout_sun"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:stretchColumns="*"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/timesheet_sun"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="8"
+                            android:text="요일"
+                            android:textAlignment="viewStart"
+                            android:textSize="20sp"></TextView>
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:text="startTime"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="~"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_startTime_am_sun"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:text="endText"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_endTime_am_sun"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="3"
+                            android:text="depart"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_depart_am_sun"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_span="2"
+                            android:text="No Issue"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_span="2"
+                            android:text="startTime"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:text="~"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_startTime_pm_sun"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:text="endText"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_endTime_pm_sun"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="3"
+                            android:text="depart"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_depart_pm_sun"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:text="No Issue"
+                            android:textAlignment="center"
+                            android:textSize="18sp"></TextView>
+                    </TableRow>
+
+
+                </TableLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_pt_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#64B5F6"
+        android:text="OK"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

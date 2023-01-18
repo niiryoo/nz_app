@@ -131,7 +131,7 @@ public class EmpFragment extends Fragment {
         end.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText note = rootView.findViewById(R.id.에딧택스트);
+                //EditText note = rootView.findViewById(R.id.);
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -145,9 +145,9 @@ public class EmpFragment extends Fragment {
                     }
                 };
 
-                StartPost startpost = new StartPost(ID, JWT,note, responseListener);
+                //StartPost startpost = new StartPost(ID, JWT,note, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(getContext());
-                queue.add(startpost);
+                //queue.add(startpost);
                 start.setVisibility(View.VISIBLE);
                 end.setVisibility(View.INVISIBLE);
             }
