@@ -184,7 +184,8 @@
                         android:layout_height="match_parent">
 
                         <TextView
-                            android:layout_width="match_parent"
+                            android:id="@+id/mon_start_am"
+                            android:layout_width="wrap_content"
                             android:layout_height="30dp"
                             android:layout_span="2"
                             android:text="startTime"
@@ -199,7 +200,7 @@
                             android:textSize="18sp"></TextView>
 
                         <TextView
-                            android:id="@+id/tv_startTime_am_mon"
+                            android:id="@+id/mon_end_am"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_span="2"
@@ -208,7 +209,7 @@
                             android:textSize="18sp"></TextView>
 
                         <TextView
-                            android:id="@+id/tv_endTime_am_mon"
+                            android:id="@+id/mon_dep_am"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_span="3"
@@ -217,7 +218,7 @@
                             android:textSize="18sp"></TextView>
 
                         <TextView
-                            android:id="@+id/tv_depart_am_mon"
+                            android:id="@+id/mon_note_am"
                             android:layout_width="match_parent"
                             android:layout_height="44dp"
                             android:layout_span="2"

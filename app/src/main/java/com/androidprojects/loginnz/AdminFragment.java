@@ -62,6 +62,8 @@ public class AdminFragment extends Fragment {
             public void onClick(View view) {
                 Toast.makeText(getContext(), "details 버튼 클릭되었음.", Toast.LENGTH_SHORT).show();
 
+
+
                 MainActivity activity = (MainActivity) getActivity(); // 프래그먼트에서 메인엑티비티 접근
                 activity.FragmentView(8);
             }
