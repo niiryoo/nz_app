@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -21,6 +20,8 @@ public class PrivateDetailTimesheetFrag_emp extends Fragment {
 
         View rootView = inflater.inflate(R.layout.timesheet_privatedetails, container, false);
 
+
+        btn_ok = rootView.findViewById(R.id.btn_pt_ok);
         btn_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -28,7 +29,6 @@ public class PrivateDetailTimesheetFrag_emp extends Fragment {
                 activity.FragmentView(2);
             }
         });
-
 
 
 

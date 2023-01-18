@@ -51,7 +51,7 @@
         android:layout_width="300dp"
         android:layout_height="70dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="470dp"
+        android:layout_marginTop="430dp"
         android:background="#A164B5F6"
         android:gravity="center"
         android:text="Start" />
@@ -61,7 +61,7 @@
         android:layout_width="300dp"
         android:layout_height="70dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="470dp"
+        android:layout_marginTop="430dp"
         android:background="#64B5F6"
         android:gravity="center"
         android:text="End"
@@ -72,7 +72,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="570dp"
+        android:layout_marginTop="530dp"
         android:text="Employee " />
 
     <EditText
@@ -80,7 +80,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="370dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="No issue." />

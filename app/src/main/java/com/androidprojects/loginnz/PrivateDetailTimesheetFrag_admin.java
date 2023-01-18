@@ -1,5 +1,6 @@
 package com.androidprojects.loginnz;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.format.Time;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -31,6 +33,7 @@ public class PrivateDetailTimesheetFrag_admin extends Fragment {
     TextView id, name, email, phone;
     TextView mon_start, mon_end, mon_dep, mon_note;
     String JWT, ID;
+    RecyclerView recyc_private;
     List<String> startTime_list = new ArrayList<String>();
 
 
@@ -45,11 +48,7 @@ public class PrivateDetailTimesheetFrag_admin extends Fragment {
         email = rootView.findViewById(R.id.tv_pd_email);
         phone = rootView.findViewById(R.id.tv_pd_phone);
         btn_ok = rootView.findViewById(R.id.btn_pt_ok);
-
-        mon_start = rootView.findViewById(R.id.mon_start_am);
-        mon_end = rootView.findViewById(R.id.mon_end_am);
-        mon_dep = rootView.findViewById(R.id.mon_dep_am);
-        mon_note = rootView.findViewById(R.id.mon_note_am);
+        recyc_private = rootView.findViewById(R.id.recyc_private);
 
 
 
