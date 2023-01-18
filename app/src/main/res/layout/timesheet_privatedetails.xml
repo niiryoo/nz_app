@@ -50,6 +50,7 @@
                 <TextView
                     android:layout_width="92dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:text="ID"
                     android:textAlignment="textStart"
                     android:textSize="16sp"></TextView>
@@ -58,7 +59,7 @@
                     android:id="@+id/tv_pd_id"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
-                    android:textAlignment="center"
+                    android:textAlignment="textStart"
                     android:textSize="15sp"></TextView>
             </TableRow>
 
@@ -70,6 +71,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:text="NAME"
                     android:textAlignment="textStart"
                     android:textSize="16sp"></TextView>
@@ -78,7 +80,7 @@
                     android:id="@+id/tv_pd_name"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
-                    android:textAlignment="center"
+                    android:textAlignment="textStart"
                     android:textSize="15sp"></TextView>
             </TableRow>
 
@@ -90,6 +92,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:text="EMAIL"
                     android:textAlignment="textStart"
                     android:textSize="16sp"></TextView>
@@ -98,7 +101,7 @@
                     android:id="@+id/tv_pd_email"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
-                    android:textAlignment="center"
+                    android:textAlignment="textStart"
                     android:textSize="15sp"></TextView>
             </TableRow>
 
@@ -110,6 +113,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:text="PHONE"
                     android:textAlignment="textStart"
                     android:textSize="16sp"></TextView>
@@ -118,7 +122,7 @@
                     android:id="@+id/tv_pd_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
-                    android:textAlignment="center"
+                    android:textAlignment="textStart"
                     android:textSize="15sp"></TextView>
             </TableRow>
 

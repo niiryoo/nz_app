@@ -6,7 +6,9 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +39,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class AdminFragment extends Fragment {
     ArrayAdapter<CharSequence> arrayAdapter;
@@ -44,6 +48,7 @@ public class AdminFragment extends Fragment {
     Button start, end, back;
     Spinner spinner;
     String JWT, ID, DEPCODE = null;
+    ImageView back_admin;
     List<String> dep_list = new ArrayList<String>();
     List<String> depcode_list = new ArrayList<String>();
 
@@ -163,6 +168,30 @@ public class AdminFragment extends Fragment {
                 activity.FragmentView(6);
             }
         });
+
+        back_admin = rootView.findViewById(R.id.back_admin);
+        back_admin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new AlertDialog.Builder(getContext())
+                        .setTitle("Application 종료")
+                        .setMessage("애플리케이션을 종료하시겠습니까?")
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(getContext(), "애플리케이션이 종료되었습니다.", Toast.LENGTH_SHORT).show();
+                                //getActivity().getSupportFragmentManager()
+                                //        .beginTransaction().remove(AdminFragment.this).commit();
+                                ActivityCompat.finishAffinity(getActivity());
+
+
+                            }
+                        })
+                        .setNegativeButton("NO", null)
+                        .show();
+            }
+        });
+
 
         spinner = rootView.findViewById(R.id.spinner_ad);
         return rootView;

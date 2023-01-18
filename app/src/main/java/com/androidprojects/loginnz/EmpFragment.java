@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -16,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,6 +46,7 @@ public class EmpFragment extends Fragment {
     TextView mypage;
     Button start, end;
     String JWT, ID, DEPCODE = null;
+    ImageView back_emp;
     List<String> dep_list = new ArrayList<String>();
     List<String> depcode_list = new ArrayList<String>();
 
@@ -155,6 +158,28 @@ public class EmpFragment extends Fragment {
                 builder.show();
             }
         });
+
+        back_emp = rootView.findViewById(R.id.back_emp);
+        back_emp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new AlertDialog.Builder(getContext())
+                        .setTitle("Application 종료")
+                        .setMessage("애플리케이션을 종료하시겠습니까?")
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(getContext(), "애플리케이션이 종료되었습니다.", Toast.LENGTH_SHORT).show();
+                                ActivityCompat.finishAffinity(getActivity());
+
+
+                            }
+                        })
+                        .setNegativeButton("NO", null)
+                        .show();
+            }
+        });
+
         spinner = rootView.findViewById(R.id.spinner);
         return rootView;
     }

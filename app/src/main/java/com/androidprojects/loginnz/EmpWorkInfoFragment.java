@@ -49,6 +49,7 @@ public class EmpWorkInfoFragment extends Fragment {
     TextView start_et_date;
     TextView end_et_date, backtext;
     Button searchbutton, addpersonbutton;
+    ImageView back;
     MainActivity mainActivity;
     String JWT, ID = null;
     public EmpWorkInfoFragment() {
@@ -121,6 +122,16 @@ public class EmpWorkInfoFragment extends Fragment {
                 mainActivity.FragmentView(3);
             }
         });
+
+        back = rootView.findViewById(R.id.btn_back_workInfo);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity activity = (MainActivity) getActivity(); // 프래그먼트에서 메인엑티비티 접근
+                activity.FragmentView(1);
+            }
+        });
+
         return rootView;
     }
 

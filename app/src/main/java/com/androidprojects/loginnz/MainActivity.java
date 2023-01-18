@@ -85,6 +85,13 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
+    @Override
+    // 뒤로가기 버튼 막기
+    public void onBackPressed() {
+        //super.onBackPressed();
+    }
+
     public void tempid(String id){
         TEMP_ID = id;
         JWTbundle.putString("TEMP_ID",TEMP_ID);

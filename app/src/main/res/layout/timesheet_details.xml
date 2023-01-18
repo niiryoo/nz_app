@@ -46,15 +46,16 @@
                 <TextView
                     android:layout_width="92dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:text="ID"
                     android:textAlignment="textStart"
                     android:textSize="16sp"></TextView>
 
                 <TextView
+                    android:id="@+id/td_id"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
-                    android:textAlignment="center"
-                    android:id="@+id/td_id"
+                    android:textAlignment="textStart"
                     android:textSize="18sp"></TextView>
             </TableRow>
 
@@ -65,6 +66,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:text="NAME"
                     android:textAlignment="textStart"
                     android:textSize="16sp"></TextView>
@@ -73,7 +75,7 @@
                     android:id="@+id/td_name"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
-                    android:textAlignment="center"
+                    android:textAlignment="textStart"
                     android:textSize="18sp"></TextView>
             </TableRow>
 
@@ -84,6 +86,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:text="EMAIL"
                     android:textAlignment="textStart"
                     android:textSize="16sp"></TextView>
@@ -92,7 +95,7 @@
                     android:id="@+id/td_email"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
-                    android:textAlignment="center"
+                    android:textAlignment="textStart"
                     android:textSize="18sp"></TextView>
             </TableRow>
 
@@ -103,6 +106,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:text="PHONE"
                     android:textAlignment="textStart"
                     android:textSize="16sp"></TextView>
@@ -111,7 +115,7 @@
                     android:id="@+id/td_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
-                    android:textAlignment="center"
+                    android:textAlignment="textStart"
                     android:textSize="18sp"></TextView>
             </TableRow>
 
