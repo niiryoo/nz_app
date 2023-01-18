@@ -145,9 +145,9 @@ public class EmpFragment extends Fragment {
                                 }
                             };
 
-                            StartPost startpost = new StartPost(ID, JWT, note.toString(), responseListener);
+                            EndPost endpost = new EndPost(ID, JWT, note.toString(), responseListener);
                             RequestQueue queue = Volley.newRequestQueue(getContext());
-                            queue.add(startpost);
+                            queue.add(endpost);
 
                         } else if (position == 1) {
                             // 취소 눌렀을 때
