@@ -62,6 +62,18 @@ public class MainActivity extends AppCompatActivity {
                 transaction.replace(R.id.parentView, empWorkInfoFragment).commit();
                 break;
 
+            case 7: // private_detail_timesheet_emp
+                PrivateDetailTimesheetFrag_emp privateDetailTimesheetFrag_emp = new PrivateDetailTimesheetFrag_emp();
+                privateDetailTimesheetFrag_emp.setArguments(JWTbundle);
+                transaction.replace(R.id.parentView, privateDetailTimesheetFrag_emp).commit();
+                break;
+
+            case 8: // private_detail_timesheet_admin
+                PrivateDetailTimesheetFrag_admin privateDetailTimesheetFrag_admin = new PrivateDetailTimesheetFrag_admin();
+                privateDetailTimesheetFrag_admin.setArguments(JWTbundle);
+                transaction.replace(R.id.parentView, privateDetailTimesheetFrag_admin).commit();
+                break;
+
         }
     }
 
