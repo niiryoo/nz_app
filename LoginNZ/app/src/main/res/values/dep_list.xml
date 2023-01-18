@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="dep_list">
+        <item> Department</item>
+        <item> Dep1 </item>
+        <item> Dep2 </item>
+        <item> Dep3 </item>
+    </string-array>
+</resources>

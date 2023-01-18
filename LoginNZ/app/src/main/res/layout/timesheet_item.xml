@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:stretchColumns="*"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/timesheet_day"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_span="8"
+                android:background="@drawable/timesheet_inside"
+                android:textAlignment="center"
+                android:textSize="18sp"></TextView>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/timesheet_inside"
+                android:text="AM :"
+                android:textAlignment="center"
+                android:textSize="18sp"></TextView>
+
+            <TextView
+                android:id="@+id/tv_startTime_am"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_span="2"
+                android:background="@drawable/timesheet_inside"
+                android:textAlignment="center"
+                android:textSize="18sp"></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/timesheet_inside"
+                android:text="~"
+                android:textAlignment="center"
+                android:textSize="18sp"></TextView>
+
+            <TextView
+                android:id="@+id/tv_endTime_am"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_span="2"
+                android:background="@drawable/timesheet_inside"
+                android:textAlignment="center"
+                android:textSize="18sp"></TextView>
+
+            <TextView
+                android:id="@+id/tv_depart_am"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_span="2"
+                android:background="@drawable/timesheet_inside"
+                android:textAlignment="center"
+                android:textSize="18sp"></TextView>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/timesheet_inside"
+                android:text="PM :"
+                android:textAlignment="center"
+                android:textSize="18sp"></TextView>
+
+            <TextView
+                android:id="@+id/tv_startTime_pm"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_span="2"
+                android:background="@drawable/timesheet_inside"
+                android:textAlignment="center"
+                android:textSize="18sp"></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/timesheet_inside"
+                android:text="~"
+                android:textAlignment="center"
+                android:textSize="18sp"></TextView>
+
+            <TextView
+                android:id="@+id/tv_endTime_pm"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_span="2"
+                android:background="@drawable/timesheet_inside"
+                android:textAlignment="center"
+                android:textSize="18sp"></TextView>
+
+            <TextView
+                android:id="@+id/tv_depart_pm"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_span="2"
+                android:background="@drawable/timesheet_inside"
+                android:textAlignment="center"
+                android:textSize="18sp"></TextView>
+        </TableRow>
+
+
+    </TableLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
