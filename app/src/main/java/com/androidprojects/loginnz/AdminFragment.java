@@ -39,6 +39,7 @@ import java.util.Map;
 
 public class AdminFragment extends Fragment {
     ArrayAdapter<CharSequence> arrayAdapter;
+    EditText note;
     TextView mypage, emp_info;
     Button start, end;
     Spinner spinner;
@@ -51,7 +52,7 @@ public class AdminFragment extends Fragment {
         makespiner();
         setHasOptionsMenu(true);
         View rootView = inflater.inflate(R.layout.fragment_admin, container, false);
-
+        note = rootView.findViewById(R.id.et_issue_admin);
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
 
         if(JWT == null && ID == null) {
@@ -80,22 +81,6 @@ public class AdminFragment extends Fragment {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Response.Listener<String> responseListener = new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonResponse = new JSONObject(response);
-                            Toast.makeText(getContext(), jsonResponse.getString("start_time"), Toast.LENGTH_SHORT).show();
-                        } catch (JSONException ex) {
-                            ex.printStackTrace();
-
-                        }
-                    }
-                };
-
-                StartPost startpost = new StartPost(ID, JWT, DEPCODE, responseListener);
-                RequestQueue queue = Volley.newRequestQueue(getContext());
-                queue.add(startpost);
                 String[] strChoiceItems = {"OK", "cancel"};
                 builder.setTitle("출근??");
                 builder.setItems(strChoiceItems, new DialogInterface.OnClickListener() {
@@ -103,17 +88,17 @@ public class AdminFragment extends Fragment {
                     public void onClick(DialogInterface dialogInterface, int position) {
                         if (position == 0) {
                             // 확인 눌렀을 때
-
                             Response.Listener<String> responseListener = new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
                                     try{
                                         JSONObject jsonResponse = new JSONObject(response);
                                         Toast.makeText(getContext(),jsonResponse.getString("start_time") , Toast.LENGTH_SHORT).show();
+                                        note.setVisibility(View.VISIBLE);
+                                        end.setVisibility(View.VISIBLE);
+                                        start.setVisibility(View.INVISIBLE);
                                     } catch (JSONException ex) {
                                         ex.printStackTrace();
-
-
                                     }
                                 }
                             };
@@ -121,8 +106,7 @@ public class AdminFragment extends Fragment {
                             StartPost startpost = new StartPost(ID, JWT,DEPCODE, responseListener);
                             RequestQueue queue = Volley.newRequestQueue(getContext());
                             queue.add(startpost);
-                            end.setVisibility(View.VISIBLE);
-                            start.setVisibility(View.INVISIBLE);
+
                         }
                         else if(position == 1) {
                             // 취소 눌렀을 때
@@ -134,28 +118,10 @@ public class AdminFragment extends Fragment {
         });
 
         end.setOnClickListener(new View.OnClickListener() {
-
-            EditText note = rootView.findViewById(R.id.et_issue_admin);
-
             @Override
             public void onClick(View view) {
-                EditText note = rootView.findViewById(R.id.et_issue_admin);
-                Response.Listener<String> responseListener = new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonResponse = new JSONObject(response);
-                            Toast.makeText(getContext(), jsonResponse.getString("end_time"), Toast.LENGTH_SHORT).show();
-                        } catch (JSONException ex) {
-                            ex.printStackTrace();
 
-                        }
-                    }
-                };
 
-                EndPost endpost = new EndPost(ID, JWT, note.toString(), responseListener);
-                RequestQueue queue = Volley.newRequestQueue(getContext());
-                queue.add(endpost);
                 String[] strChoiceItems = {"OK", "cancel"};
                 builder.setTitle("퇴근??");
                 builder.setItems(strChoiceItems, new DialogInterface.OnClickListener() {
@@ -168,10 +134,12 @@ public class AdminFragment extends Fragment {
                                 public void onResponse(String response) {
                                     try{
                                         JSONObject jsonResponse = new JSONObject(response);
-                                        Toast.makeText(getContext(),jsonResponse.getString("start_time") , Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getContext(),jsonResponse.getString("end_time") , Toast.LENGTH_SHORT).show();
+                                        note.setVisibility(View.INVISIBLE);
+                                        start.setVisibility(View.VISIBLE);
+                                        end.setVisibility(View.INVISIBLE);
                                     } catch (JSONException ex) {
                                         ex.printStackTrace();
-
                                     }
                                 }
                             };
@@ -179,8 +147,7 @@ public class AdminFragment extends Fragment {
                             StartPost startpost = new StartPost(ID, JWT, note.toString(), responseListener);
                             RequestQueue queue = Volley.newRequestQueue(getContext());
                             queue.add(startpost);
-                            start.setVisibility(View.VISIBLE);
-                            end.setVisibility(View.INVISIBLE);
+
                         }
                         else if(position == 1) {
                             // 취소 눌렀을 때
@@ -231,7 +198,7 @@ public class AdminFragment extends Fragment {
 
                         @Override
                         public void onNothingSelected(AdapterView<?> adapterView) {
-                            Log.d("Log", spinner.getSelectedItem().toString());
+                            DEPCODE = depcode_list.get(0);
                         }
                     });
 

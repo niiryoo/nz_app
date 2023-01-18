@@ -40,22 +40,22 @@ import java.util.Map;
 public class EmpFragment extends Fragment {
     ArrayAdapter<CharSequence> arrayAdapter;
     Spinner spinner;
+    EditText note;
     TextView mypage;
     Button start, end;
     String JWT, ID, DEPCODE = null;
-    String url = "http://20.211.44.13:5000/department/";
     List<String> dep_list = new ArrayList<String>();
     List<String> depcode_list = new ArrayList<String>();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        makeRequest();
+        makespiner();
         setHasOptionsMenu(true);
         View rootView = inflater.inflate(R.layout.fragment_emp, container, false);
-
+        note = rootView.findViewById(R.id.tv_issue);
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
 
-        if(JWT == null && ID == null) {
+        if (JWT == null && ID == null) {
             if (getArguments() != null) {
                 JWT = getArguments().getString("JWT"); // mainactivity에서 JWT 받아온 값 넣기
                 ID = getArguments().getString("ID"); // mainactivity에서 ID 받아온 값 넣기
@@ -87,28 +87,26 @@ public class EmpFragment extends Fragment {
                     public void onClick(DialogInterface dialogInterface, int position) {
                         if (position == 0) {
                             // 확인 눌렀을 때
-
                             Response.Listener<String> responseListener = new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
-                                    try{
+                                    try {
                                         JSONObject jsonResponse = new JSONObject(response);
-                                        Toast.makeText(getContext(),jsonResponse.getString("start_time") , Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getContext(), jsonResponse.getString("start_time"), Toast.LENGTH_SHORT).show();
+                                        Log.d("start_time",jsonResponse.getString("start_time"));
+                                        note.setVisibility(View.VISIBLE);
+                                        end.setVisibility(View.VISIBLE);
+                                        start.setVisibility(View.INVISIBLE);
                                     } catch (JSONException ex) {
                                         ex.printStackTrace();
-
-
                                     }
                                 }
                             };
-
-                            StartPost startpost = new StartPost(ID, JWT,DEPCODE, responseListener);
+                            StartPost startpost = new StartPost(ID, JWT, DEPCODE, responseListener);
                             RequestQueue queue = Volley.newRequestQueue(getContext());
                             queue.add(startpost);
-                            end.setVisibility(View.VISIBLE);
-                            start.setVisibility(View.INVISIBLE);
-                        }
-                        else if(position == 1) {
+
+                        } else if (position == 1) {
                             // 취소 눌렀을 때
                         }
                     }
@@ -121,7 +119,7 @@ public class EmpFragment extends Fragment {
         end.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText note = rootView.findViewById(R.id.tv_issue);
+
 
                 String[] strChoiceItems = {"OK", "cancel"};
                 builder.setTitle("퇴근??");
@@ -133,9 +131,13 @@ public class EmpFragment extends Fragment {
                             Response.Listener<String> responseListener = new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
-                                    try{
+                                    try {
                                         JSONObject jsonResponse = new JSONObject(response);
-                                        Toast.makeText(getContext(),jsonResponse.getString("start_time") , Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getContext(), jsonResponse.getString("end_time"), Toast.LENGTH_SHORT).show();
+                                        Log.d("end_time",jsonResponse.getString("end_time"));
+                                        note.setVisibility(View.INVISIBLE);
+                                        start.setVisibility(View.VISIBLE);
+                                        end.setVisibility(View.INVISIBLE);
                                     } catch (JSONException ex) {
                                         ex.printStackTrace();
 
@@ -146,10 +148,8 @@ public class EmpFragment extends Fragment {
                             StartPost startpost = new StartPost(ID, JWT, note.toString(), responseListener);
                             RequestQueue queue = Volley.newRequestQueue(getContext());
                             queue.add(startpost);
-                            start.setVisibility(View.VISIBLE);
-                            end.setVisibility(View.INVISIBLE);
-                        }
-                        else if(position == 1) {
+
+                        } else if (position == 1) {
                             // 취소 눌렀을 때
                         }
                     }
@@ -167,62 +167,44 @@ public class EmpFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
     }
 
-    private void makeRequest(){ // 부서 정보 파싱
-        StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+    private void makespiner() { // 부서 정보 파싱 후 spiner에 추가
+        Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                processResponse(response);
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
+                try {
+                    JSONArray jsonArray = new JSONArray(response);
 
-            }
-        }){
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError{
-                Map params = new HashMap();
-                params.put("authorization", JWT);
-                return params;
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                        String dep = jsonObject.getString("name");
+                        dep_list.add(dep); // 부서명 저장
+                        depcode_list.add(jsonObject.getString("code")); // code 저장
+                    }
+                    arrayAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_dropdown_item, dep_list);
+                    arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                    spinner.setAdapter(arrayAdapter);
+                    spinner.setPrompt("Department");
+                    spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                            DEPCODE = depcode_list.get(i);
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> adapterView) {
+                            DEPCODE = depcode_list.get(0);
+                        }
+                    });
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         };
-        request.setShouldCache(false);
-        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-        requestQueue.add(request);
+
+        DepartmentGet DepartmentGet = new DepartmentGet(JWT, responseListener);
+        RequestQueue queue = Volley.newRequestQueue(getContext());
+        queue.add(DepartmentGet);
     }
-
-    private void processResponse(String response){ // json 데이터 파싱, response = 내가 요청한 get 값
-        try{
-            JSONArray jsonArray = new JSONArray(response);
-
-            for(int i = 0; i < jsonArray.length(); i++){
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                String dep = jsonObject.getString("name");
-                dep_list.add(dep); // 부서명 저장
-                depcode_list.add(jsonObject.getString("code")); // code 저장
-            }
-            arrayAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_dropdown_item, dep_list);
-            arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-            spinner.setAdapter(arrayAdapter);
-            spinner.setPrompt("Department");
-            spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                    DEPCODE = depcode_list.get(i);
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> adapterView) {
-                    Log.d("Log",spinner.getSelectedItem().toString());
-                }
-            });
-
-        } catch(Exception e){
-            e.printStackTrace();
-        }
-
-    }
-
-
 }
