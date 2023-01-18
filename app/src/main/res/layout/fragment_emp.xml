@@ -5,6 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".EmpFragment">
 
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/back"
+        android:layout_marginTop="5dp">
+    </ImageView>
+
     <TextView
         android:id="@+id/myPage_amp"
         android:layout_width="wrap_content"
@@ -47,31 +54,39 @@
 
     <Button
         android:id="@+id/Start"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="70dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="430dp"
         android:background="#A164B5F6"
-        android:text="Start" />
+        android:gravity="center"
+        android:text="Start"
+        android:textStyle="bold"
+        android:textSize="16sp"/>
 
     <Button
         android:id="@+id/End"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="70dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="430dp"
         android:background="#64B5F6"
+        android:gravity="center"
         android:text="End"
+        android:textStyle="bold"
+        android:textSize="16sp"
         android:visibility="invisible" />
 
     <EditText
         android:id="@+id/tv_issue"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="500dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="370dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="No issue." />
+
 
 
 </FrameLayout>

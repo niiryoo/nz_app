@@ -5,6 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".EmpFragment">
 
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/back"
+        android:layout_marginTop="5dp">
+    </ImageView>
+
     <TextView
         android:id="@+id/myPage_ad"
         android:layout_width="wrap_content"
@@ -54,7 +61,9 @@
         android:layout_marginTop="430dp"
         android:background="#A164B5F6"
         android:gravity="center"
-        android:text="Start" />
+        android:text="Start"
+        android:textStyle="bold"
+        android:textSize="16sp"/>
 
     <Button
         android:id="@+id/End"
@@ -65,6 +74,8 @@
         android:background="#64B5F6"
         android:gravity="center"
         android:text="End"
+        android:textStyle="bold"
+        android:textSize="16sp"
         android:visibility="invisible" />
 
     <Button
@@ -73,7 +84,9 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="530dp"
-        android:text="Employee " />
+        android:text="Employee Work Info"
+        android:textStyle="bold"
+        android:textSize="14sp"/>
 
     <EditText
         android:id="@+id/et_issue_admin"

@@ -113,13 +113,6 @@ public class EmpWorkInfoFragment extends Fragment {
             }
         });
 
-        backtext = rootView.findViewById(R.id.backtext);
-        backtext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mainActivity.FragmentView(1);
-            }
-        });
 
         addpersonbutton = rootView.findViewById(R.id.addperson);
         addpersonbutton.setOnClickListener(new View.OnClickListener() {

@@ -79,7 +79,7 @@ public class PrivateDetailTimesheetFrag_admin extends Fragment {
         RequestQueue profilequeue = Volley.newRequestQueue(getContext());
         profilequeue.add(profileGet);
 
-        Response.Listener<String> timesheetListener = new Response.Listener<String>() {
+       /** Response.Listener<String> timesheetListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try{
@@ -99,7 +99,7 @@ public class PrivateDetailTimesheetFrag_admin extends Fragment {
         };
         TimesheetGet timesheetGet = new TimesheetGet(ID, JWT, timesheetListener);
         RequestQueue timesheetqueue = Volley.newRequestQueue(getContext());
-        timesheetqueue.add(timesheetGet);
+        timesheetqueue.add(timesheetGet);**/
 
 
 
