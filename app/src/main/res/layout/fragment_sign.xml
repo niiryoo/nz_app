@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".SignFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:layout_marginLeft="5dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Sign Up"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="40dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginLeft="20dp"
+            android:text="Your Name"
+            android:layout_marginTop="3dp"/>
+
+        <EditText
+            android:id="@+id/Name"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            tools:ignore="SpeakableTextPresentCheck" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginLeft="20dp"
+            android:text="ID"
+            android:layout_marginTop="3dp"
+            />
+
+        <EditText
+            android:id="@+id/ID"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:minHeight="48dp"
+            tools:ignore="SpeakableTextPresentCheck" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginLeft="20dp"
+            android:text="Password"
+            android:layout_marginTop="3dp"/>
+
+        <EditText
+            android:id="@+id/pw"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:minHeight="48dp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginLeft="20dp"
+            android:text="Password Confirm"
+            android:layout_marginTop="3dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/pw_confirm"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:minHeight="48dp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/confirm_button"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/shape"
+                android:text="Confirm" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/confirm_text"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/black"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginLeft="20dp"
+            android:text="Email"
+            android:layout_marginTop="3dp"/>
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:minHeight="48dp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginLeft="20dp"
+            android:text="Tel"
+            android:layout_marginTop="3dp"/>
+
+        <EditText
+            android:id="@+id/tel"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:minHeight="48dp"
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginLeft="20dp"
+            android:text="Position"
+            android:layout_marginTop="3dp"/>
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp">
+
+            <RadioButton
+                android:id="@+id/emp_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Employee"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <RadioButton
+                android:id="@+id/admin_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Administrator"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/create_button"
+            android:layout_width="230dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/shape"
+            android:enabled="true"
+            android:minHeight="32dp"
+            android:text="Create your Account"
+            tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+
+
+
+
+
+
+    </LinearLayout>
+
+</ScrollView>

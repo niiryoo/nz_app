@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EmpFragment">
+
+    <TextView
+        android:id="@+id/myPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="315dp"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="19dp"
+        android:textAlignment="center"
+        android:text="My Page" />
+
+    <TextView
+        android:id="@+id/hourswork"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="hours worked"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="19dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:textAlignment="center"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="2023-01-11"
+        android:textSize="18dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="160dp"/>
+
+    <DigitalClock
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="230dp"
+        android:layout_marginLeft="100dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="50sp"
+        />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:minHeight="48dp" />
+
+    <Button
+        android:id="@+id/Start"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="350dp"
+        android:background="@drawable/shape"
+        android:text="Start" />
+
+    <Button
+        android:id="@+id/End"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="350dp"
+        android:background="@drawable/shape"
+        android:text="End"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/rest"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="350dp"
+        android:background="@drawable/shape"
+        android:text="Rest" />
+
+
+    <Button
+        android:id="@+id/Restart"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="350dp"
+        android:background="@drawable/shape"
+        android:text="Restart"
+        android:visibility="invisible" />
+
+</FrameLayout>
