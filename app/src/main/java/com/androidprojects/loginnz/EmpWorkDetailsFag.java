@@ -31,6 +31,15 @@ public class EmpWorkDetailsFag extends Fragment {
         View rootView = inflater.inflate(R.layout.timesheet_details, container, false);
 
 
+        button_ok = rootView.findViewById(R.id.btn_dt_ok);
+        button_ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity activity = (MainActivity) getActivity(); // 프래그먼트에서 메인엑티비티 접근
+                activity.FragmentView(6);
+            }
+        });
+
         return rootView;
     }
 
