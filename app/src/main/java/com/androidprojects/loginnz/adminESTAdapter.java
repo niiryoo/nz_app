@@ -64,8 +64,8 @@ public class adminESTAdapter extends RecyclerView.Adapter<adminESTAdapter.ViewHo
             cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    MainActivity mainActivity = new MainActivity();
-                    mainActivity.FragmentView(9);
+                    MainActivity activity = (MainActivity) itemView.getContext();
+                    activity.FragmentView(9);
 
                 }
             });

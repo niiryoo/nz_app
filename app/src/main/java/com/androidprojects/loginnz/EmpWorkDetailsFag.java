@@ -31,8 +31,6 @@ public class EmpWorkDetailsFag extends Fragment {
         View rootView = inflater.inflate(R.layout.timesheet_details, container, false);
 
 
-
-
         return rootView;
     }
 
