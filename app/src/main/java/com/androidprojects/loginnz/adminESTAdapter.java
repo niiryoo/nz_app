@@ -33,6 +33,7 @@ public class adminESTAdapter extends RecyclerView.Adapter<adminESTAdapter.ViewHo
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
     }
 
     @Override
@@ -44,10 +45,13 @@ public class adminESTAdapter extends RecyclerView.Adapter<adminESTAdapter.ViewHo
         items.add(jsonObject);
     }
 
+
+
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView ID, name, statustext;
         ImageView userimg, statuscolor;
-
+        CardView cardView;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ID = itemView.findViewById(R.id.signum);
@@ -55,7 +59,19 @@ public class adminESTAdapter extends RecyclerView.Adapter<adminESTAdapter.ViewHo
             statustext = itemView.findViewById(R.id.statustext);
             userimg = itemView.findViewById(R.id.userimg);
             statuscolor = itemView.findViewById(R.id.statuscolor);
+
+            cardView = itemView.findViewById(R.id.cardview);
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MainActivity mainActivity = new MainActivity();
+                    mainActivity.FragmentView(9);
+
+                }
+            });
         }
+
+
 
         public void setItem(JSONObject item) throws JSONException {
             ID.setText(item.getString("user_id"));
