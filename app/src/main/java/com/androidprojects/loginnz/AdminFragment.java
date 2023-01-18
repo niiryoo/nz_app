@@ -55,20 +55,19 @@ public class AdminFragment extends Fragment {
         note = rootView.findViewById(R.id.et_issue_admin);
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
 
-        if(JWT == null && ID == null) {
+        if (JWT == null && ID == null) {
             if (getArguments() != null) {
                 JWT = getArguments().getString("JWT"); // mainactivity에서 JWT 받아온 값 넣기
                 ID = getArguments().getString("ID"); // mainactivity에서 ID 받아온 값 넣기
             }
         }
-
+        checktimesheet(); // 데이터베이스에 start, end 레코드 예외처리
 
         mypage = rootView.findViewById(R.id.myPage_ad);
         mypage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getContext(), "details 버튼 클릭되었음.", Toast.LENGTH_SHORT).show();
-
 
 
                 MainActivity activity = (MainActivity) getActivity(); // 프래그먼트에서 메인엑티비티 접근
@@ -91,9 +90,10 @@ public class AdminFragment extends Fragment {
                             Response.Listener<String> responseListener = new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
-                                    try{
+                                    try {
                                         JSONObject jsonResponse = new JSONObject(response);
-                                        Toast.makeText(getContext(),jsonResponse.getString("start_time") , Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getContext(), jsonResponse.getString("start_time"), Toast.LENGTH_SHORT).show();
+                                        spinner.setVisibility(View.INVISIBLE);
                                         note.setVisibility(View.VISIBLE);
                                         end.setVisibility(View.VISIBLE);
                                         start.setVisibility(View.INVISIBLE);
@@ -103,12 +103,11 @@ public class AdminFragment extends Fragment {
                                 }
                             };
 
-                            StartPost startpost = new StartPost(ID, JWT,DEPCODE, responseListener);
+                            StartPost startpost = new StartPost(ID, JWT, DEPCODE, responseListener);
                             RequestQueue queue = Volley.newRequestQueue(getContext());
                             queue.add(startpost);
 
-                        }
-                        else if(position == 1) {
+                        } else if (position == 1) {
                             // 취소 눌렀을 때
                         }
                     }
@@ -132,9 +131,10 @@ public class AdminFragment extends Fragment {
                             Response.Listener<String> responseListener = new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
-                                    try{
+                                    try {
                                         JSONObject jsonResponse = new JSONObject(response);
-                                        Toast.makeText(getContext(),jsonResponse.getString("end_time") , Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getContext(), jsonResponse.getString("end_time"), Toast.LENGTH_SHORT).show();
+                                        spinner.setVisibility(View.VISIBLE);
                                         note.setVisibility(View.INVISIBLE);
                                         start.setVisibility(View.VISIBLE);
                                         end.setVisibility(View.INVISIBLE);
@@ -148,8 +148,7 @@ public class AdminFragment extends Fragment {
                             RequestQueue queue = Volley.newRequestQueue(getContext());
                             queue.add(endpost);
 
-                        }
-                        else if(position == 1) {
+                        } else if (position == 1) {
                             // 취소 눌렀을 때
                         }
                     }
@@ -213,4 +212,36 @@ public class AdminFragment extends Fragment {
         queue.add(DepartmentGet);
     }
 
+    private void checktimesheet() { // 데이터베이스에 start, end 레코드 예외처리
+        Response.Listener<String> responseListener = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONArray jsonArray = new JSONArray(response);
+                    JSONObject jsonObject = jsonArray.getJSONObject(0);
+                    String start_time = jsonObject.getString("start_time");
+                    String end_time = jsonObject.getString("end_time");
+                    if (start_time == null) {
+                        spinner.setVisibility(View.VISIBLE);
+                        note.setVisibility(View.INVISIBLE);
+                        start.setVisibility(View.VISIBLE);
+                        end.setVisibility(View.INVISIBLE);
+                    }
+                    if (start_time != null && end_time == "null") {
+                        DEPCODE = jsonObject.getString("department_id");
+                        spinner.setVisibility(View.INVISIBLE);
+                        note.setVisibility(View.VISIBLE);
+                        start.setVisibility(View.INVISIBLE);
+                        end.setVisibility(View.VISIBLE);
+                    }
+                } catch (JSONException ex) {
+                    ex.printStackTrace();
+
+                }
+            }
+        };
+        TimesheetGet timesheetGet = new TimesheetGet(ID, JWT, responseListener);
+        RequestQueue queue = Volley.newRequestQueue(getContext());
+        queue.add(timesheetGet);
+    }
 }

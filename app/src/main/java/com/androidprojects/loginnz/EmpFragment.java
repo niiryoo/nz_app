@@ -62,6 +62,7 @@ public class EmpFragment extends Fragment {
             }
         }
         checktimesheet(); // 데이터베이스에 start, end 레코드 예외처리
+
         mypage = rootView.findViewById(R.id.myPage_amp);
         mypage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,8 +120,6 @@ public class EmpFragment extends Fragment {
         end.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
                 String[] strChoiceItems = {"OK", "cancel"};
                 builder.setTitle("퇴근??");
                 builder.setItems(strChoiceItems, new DialogInterface.OnClickListener() {
@@ -135,6 +134,7 @@ public class EmpFragment extends Fragment {
                                         JSONObject jsonResponse = new JSONObject(response);
                                         Toast.makeText(getContext(), jsonResponse.getString("end_time"), Toast.LENGTH_SHORT).show();
                                         Log.d("end_time",jsonResponse.getString("end_time"));
+                                        spinner.setVisibility(View.VISIBLE);
                                         note.setVisibility(View.INVISIBLE);
                                         start.setVisibility(View.VISIBLE);
                                         end.setVisibility(View.INVISIBLE);
@@ -164,7 +164,6 @@ public class EmpFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        checktimesheet();
         super.onViewCreated(view, savedInstanceState);
     }
 
@@ -214,17 +213,20 @@ public class EmpFragment extends Fragment {
                 try {
                     JSONArray jsonArray = new JSONArray(response);
                     JSONObject jsonObject = jsonArray.getJSONObject(0);
-                    if(jsonObject.getString("start_time") == null){
+                    String start_time = jsonObject.getString("start_time");
+                    String end_time = jsonObject.getString("end_time");
+                    if(start_time == null){
+                        spinner.setVisibility(View.VISIBLE);
                         note.setVisibility(View.INVISIBLE);
                         start.setVisibility(View.VISIBLE);
                         end.setVisibility(View.INVISIBLE);
                     }
-                    else {
+                    if(start_time != null && end_time == "null") {
                         DEPCODE = jsonObject.getString("department_id");
                         spinner.setVisibility(View.INVISIBLE);
                         note.setVisibility(View.VISIBLE);
-                        end.setVisibility(View.VISIBLE);
                         start.setVisibility(View.INVISIBLE);
+                        end.setVisibility(View.VISIBLE);
                     }
                 } catch (JSONException ex) {
                     ex.printStackTrace();
