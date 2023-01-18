@@ -67,8 +67,6 @@ public class EmpFragment extends Fragment {
         mypage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "details 버튼 클릭되었음.", Toast.LENGTH_SHORT).show();
-
                 MainActivity activity = (MainActivity) getActivity(); // 프래그먼트에서 메인엑티비티 접근
                 activity.FragmentView(7);
             }
@@ -80,8 +78,8 @@ public class EmpFragment extends Fragment {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String[] strChoiceItems = {"OK", "cancel"};
-                builder.setTitle("출근??");
+                String[] strChoiceItems = {"Yes", "No"};
+                builder.setTitle("Do you want to press the button?");
                 builder.setItems(strChoiceItems, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int position) {
@@ -120,8 +118,8 @@ public class EmpFragment extends Fragment {
         end.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String[] strChoiceItems = {"OK", "cancel"};
-                builder.setTitle("퇴근??");
+                String[] strChoiceItems = {"Yes", "No"};
+                builder.setTitle("Do you want to press the button?");
                 builder.setItems(strChoiceItems, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int position) {
