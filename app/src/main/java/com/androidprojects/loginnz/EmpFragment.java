@@ -61,7 +61,7 @@ public class EmpFragment extends Fragment {
                 ID = getArguments().getString("ID"); // mainactivity에서 ID 받아온 값 넣기
             }
         }
-
+        checktimesheet(); // 데이터베이스에 start, end 레코드 예외처리
         mypage = rootView.findViewById(R.id.myPage_amp);
         mypage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +79,6 @@ public class EmpFragment extends Fragment {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 String[] strChoiceItems = {"OK", "cancel"};
                 builder.setTitle("출근??");
                 builder.setItems(strChoiceItems, new DialogInterface.OnClickListener() {
@@ -94,6 +93,7 @@ public class EmpFragment extends Fragment {
                                         JSONObject jsonResponse = new JSONObject(response);
                                         Toast.makeText(getContext(), jsonResponse.getString("start_time"), Toast.LENGTH_SHORT).show();
                                         Log.d("start_time",jsonResponse.getString("start_time"));
+                                        spinner.setVisibility(View.INVISIBLE);
                                         note.setVisibility(View.VISIBLE);
                                         end.setVisibility(View.VISIBLE);
                                         start.setVisibility(View.INVISIBLE);
@@ -164,6 +164,7 @@ public class EmpFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        checktimesheet();
         super.onViewCreated(view, savedInstanceState);
     }
 
@@ -190,7 +191,6 @@ public class EmpFragment extends Fragment {
                         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                             DEPCODE = depcode_list.get(i);
                         }
-
                         @Override
                         public void onNothingSelected(AdapterView<?> adapterView) {
                             DEPCODE = depcode_list.get(0);
@@ -207,4 +207,34 @@ public class EmpFragment extends Fragment {
         RequestQueue queue = Volley.newRequestQueue(getContext());
         queue.add(DepartmentGet);
     }
+    private void checktimesheet(){ // 데이터베이스에 start, end 레코드 예외처리
+        Response.Listener<String> responseListener = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONArray jsonArray = new JSONArray(response);
+                    JSONObject jsonObject = jsonArray.getJSONObject(0);
+                    if(jsonObject.getString("start_time") == null){
+                        note.setVisibility(View.INVISIBLE);
+                        start.setVisibility(View.VISIBLE);
+                        end.setVisibility(View.INVISIBLE);
+                    }
+                    else {
+                        DEPCODE = jsonObject.getString("department_id");
+                        spinner.setVisibility(View.INVISIBLE);
+                        note.setVisibility(View.VISIBLE);
+                        end.setVisibility(View.VISIBLE);
+                        start.setVisibility(View.INVISIBLE);
+                    }
+                } catch (JSONException ex) {
+                    ex.printStackTrace();
+
+                }
+            }
+        };
+        TimesheetGet timesheetGet = new TimesheetGet(ID, JWT, responseListener);
+        RequestQueue queue = Volley.newRequestQueue(getContext());
+        queue.add(timesheetGet);
+    }
+
 }
