@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="Details"
+        android:text="Employee Info"
+        android:textStyle="bold"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="24sp"
@@ -37,11 +38,13 @@
 
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp">
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp">
 
                 <TextView
                     android:layout_width="92dp"
@@ -61,7 +64,8 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -81,7 +85,8 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -101,7 +106,8 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -141,6 +147,7 @@
             android:layout_height="wrap_content"
             android:text="TimeSheet"
             android:textAlignment="center"
+            android:layout_marginTop="5dp"
             android:textColor="#000000"
             android:textSize="24sp" />
 
@@ -163,7 +170,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#64b0f6"
-        android:text="Check"
+        android:text="Confirm"
         android:textStyle="bold"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
