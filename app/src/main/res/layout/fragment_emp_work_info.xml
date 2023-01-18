@@ -141,10 +141,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:background="#64B5F6"
+        android:background="#64b0f6"
         android:gravity="center"
         android:text="Add employee"
-        android:textSize="16sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         ></Button>
 

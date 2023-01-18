@@ -69,7 +69,9 @@
                     android:id="@+id/statustext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="근무중" />
+                    android:text="근무중"
+                    android:layout_marginLeft="3dp"
+                    />
 
             </LinearLayout>
         </LinearLayout>

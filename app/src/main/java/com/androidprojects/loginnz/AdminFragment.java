@@ -41,7 +41,7 @@ public class AdminFragment extends Fragment {
     ArrayAdapter<CharSequence> arrayAdapter;
     EditText note;
     TextView mypage, emp_info;
-    Button start, end;
+    Button start, end, back;
     Spinner spinner;
     String JWT, ID, DEPCODE = null;
     List<String> dep_list = new ArrayList<String>();
@@ -212,4 +212,5 @@ public class AdminFragment extends Fragment {
         RequestQueue queue = Volley.newRequestQueue(getContext());
         queue.add(DepartmentGet);
     }
+
 }
