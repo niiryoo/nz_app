@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
                 empWorkInfoFragment.setArguments(JWTbundle);
                 transaction.replace(R.id.parentView, empWorkInfoFragment).commit();
                 break;
-
             case 7: // private_detail_timesheet_emp
                 PrivateDetailTimesheetFrag_emp privateDetailTimesheetFrag_emp = new PrivateDetailTimesheetFrag_emp();
                 privateDetailTimesheetFrag_emp.setArguments(JWTbundle);
@@ -76,6 +75,10 @@ public class MainActivity extends AppCompatActivity {
                 PrivateDetailTimesheetFrag_admin privateDetailTimesheetFrag_admin = new PrivateDetailTimesheetFrag_admin();
                 privateDetailTimesheetFrag_admin.setArguments(JWTbundle);
                 transaction.replace(R.id.parentView, privateDetailTimesheetFrag_admin).commit();
+                break;
+            case 9: // empWorkDetailsFag
+                EmpWorkDetailsFag empWorkDetailsFag = new EmpWorkDetailsFag();
+                transaction.replace(R.id.parentView, empWorkDetailsFag).commit();
                 break;
 
         }
@@ -111,8 +114,6 @@ public class MainActivity extends AppCompatActivity {
         ProfileGet ProfileGet = new ProfileGet(JWT, id, responseListener);
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(ProfileGet);
-        String url = "http://20.211.44.13:5000/profile/?user="+id;
-
     }
 }
 

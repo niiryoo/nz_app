@@ -38,7 +38,7 @@
         />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spinner_ad"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_gravity="center"
@@ -50,7 +50,7 @@
         android:layout_width="300dp"
         android:layout_height="70dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="470dp"
         android:background="#A164B5F6"
         android:gravity="center"
         android:text="Start" />
@@ -60,7 +60,7 @@
         android:layout_width="300dp"
         android:layout_height="70dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="470dp"
         android:background="#64B5F6"
         android:gravity="center"
         android:text="End"
@@ -71,8 +71,17 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="570dp"
         android:text="Employee " />
 
+    <EditText
+        android:id="@+id/et_issue_admin"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="400dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="No issue." />
 
 </FrameLayout>

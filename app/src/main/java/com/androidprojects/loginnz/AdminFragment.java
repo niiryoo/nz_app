@@ -1,6 +1,8 @@
 package com.androidprojects.loginnz;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -50,6 +52,8 @@ public class AdminFragment extends Fragment {
         setHasOptionsMenu(true);
         View rootView = inflater.inflate(R.layout.fragment_admin, container, false);
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+
         if(JWT == null && ID == null) {
             if (getArguments() != null) {
                 JWT = getArguments().getString("JWT"); // mainactivity에서 JWT 받아온 값 넣기
@@ -90,15 +94,50 @@ public class AdminFragment extends Fragment {
                 StartPost startpost = new StartPost(ID, JWT, DEPCODE, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(getContext());
                 queue.add(startpost);
-                end.setVisibility(View.VISIBLE);
-                start.setVisibility(View.INVISIBLE);
+                String[] strChoiceItems = {"OK", "cancel"};
+                builder.setTitle("출근??");
+                builder.setItems(strChoiceItems, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int position) {
+                        if (position == 0) {
+                            // 확인 눌렀을 때
+
+                            Response.Listener<String> responseListener = new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    try{
+                                        JSONObject jsonResponse = new JSONObject(response);
+                                        Toast.makeText(getContext(),jsonResponse.getString("start_time") , Toast.LENGTH_SHORT).show();
+                                    } catch (JSONException ex) {
+                                        ex.printStackTrace();
+
+
+                                    }
+                                }
+                            };
+
+                            StartPost startpost = new StartPost(ID, JWT,DEPCODE, responseListener);
+                            RequestQueue queue = Volley.newRequestQueue(getContext());
+                            queue.add(startpost);
+                            end.setVisibility(View.VISIBLE);
+                            start.setVisibility(View.INVISIBLE);
+                        }
+                        else if(position == 1) {
+                            // 취소 눌렀을 때
+                        }
+                    }
+                });
+                builder.show();
             }
         });
 
         end.setOnClickListener(new View.OnClickListener() {
+
+            EditText note = rootView.findViewById(R.id.et_issue_admin);
+
             @Override
             public void onClick(View view) {
-                EditText note = rootView.findViewById(R.id.아무거나);
+                EditText note = rootView.findViewById(R.id.et_issue_admin);
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -115,8 +154,38 @@ public class AdminFragment extends Fragment {
                 EndPost endpost = new EndPost(ID, JWT, note.toString(), responseListener);
                 RequestQueue queue = Volley.newRequestQueue(getContext());
                 queue.add(endpost);
-                start.setVisibility(View.VISIBLE);
-                end.setVisibility(View.INVISIBLE);
+                String[] strChoiceItems = {"OK", "cancel"};
+                builder.setTitle("퇴근??");
+                builder.setItems(strChoiceItems, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int position) {
+                        if (position == 0) {
+                            // 확인 눌렀을 때
+                            Response.Listener<String> responseListener = new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    try{
+                                        JSONObject jsonResponse = new JSONObject(response);
+                                        Toast.makeText(getContext(),jsonResponse.getString("start_time") , Toast.LENGTH_SHORT).show();
+                                    } catch (JSONException ex) {
+                                        ex.printStackTrace();
+
+                                    }
+                                }
+                            };
+
+                            StartPost startpost = new StartPost(ID, JWT, note.toString(), responseListener);
+                            RequestQueue queue = Volley.newRequestQueue(getContext());
+                            queue.add(startpost);
+                            start.setVisibility(View.VISIBLE);
+                            end.setVisibility(View.INVISIBLE);
+                        }
+                        else if(position == 1) {
+                            // 취소 눌렀을 때
+                        }
+                    }
+                });
+                builder.show();
             }
         });
 
@@ -130,7 +199,7 @@ public class AdminFragment extends Fragment {
             }
         });
 
-        spinner = rootView.findViewById(R.id.spinner);
+        spinner = rootView.findViewById(R.id.spinner_ad);
         return rootView;
     }
 
