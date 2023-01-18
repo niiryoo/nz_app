@@ -140,7 +140,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:background="#64b0f6"
-        android:text="Add employee"
+        android:text="Add Employee Information"
         android:textSize="15sp"
         android:textStyle="bold"/>
 </LinearLayout>
