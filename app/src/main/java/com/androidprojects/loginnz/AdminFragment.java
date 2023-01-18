@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +27,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -39,13 +41,12 @@ public class AdminFragment extends Fragment {
     Button start, end;
     Spinner spinner;
     String JWT, ID, DEPCODE = null;
-    String url = "http://20.211.44.13:5000/department/";
     List<String> dep_list = new ArrayList<String>();
     List<String> depcode_list = new ArrayList<String>();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        makeRequest();
+        makespiner();
         setHasOptionsMenu(true);
         View rootView = inflater.inflate(R.layout.fragment_admin, container, false);
 
@@ -73,6 +74,22 @@ public class AdminFragment extends Fragment {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonResponse = new JSONObject(response);
+                            Toast.makeText(getContext(), jsonResponse.getString("start_time"), Toast.LENGTH_SHORT).show();
+                        } catch (JSONException ex) {
+                            ex.printStackTrace();
+
+                        }
+                    }
+                };
+
+                StartPost startpost = new StartPost(ID, JWT, DEPCODE, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(getContext());
+                queue.add(startpost);
                 end.setVisibility(View.VISIBLE);
                 start.setVisibility(View.INVISIBLE);
             }
@@ -81,6 +98,23 @@ public class AdminFragment extends Fragment {
         end.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                EditText note = rootView.findViewById(R.id.아무거나);
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonResponse = new JSONObject(response);
+                            Toast.makeText(getContext(), jsonResponse.getString("end_time"), Toast.LENGTH_SHORT).show();
+                        } catch (JSONException ex) {
+                            ex.printStackTrace();
+
+                        }
+                    }
+                };
+
+                EndPost endpost = new EndPost(ID, JWT, note.toString(), responseListener);
+                RequestQueue queue = Volley.newRequestQueue(getContext());
+                queue.add(endpost);
                 start.setVisibility(View.VISIBLE);
                 end.setVisibility(View.INVISIBLE);
             }
@@ -100,66 +134,44 @@ public class AdminFragment extends Fragment {
         return rootView;
     }
 
-    private void makeRequest(){ // 부서 정보 파싱
-        StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+    private void makespiner() { // 부서 정보 파싱 후 spiner에 추가
+        Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                processResponse(response);
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
+                try {
+                    JSONArray jsonArray = new JSONArray(response);
 
-            }
-        }){
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map params = new HashMap();
-                params.put("authorization", JWT);
-                return params;
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                        String dep = jsonObject.getString("name");
+                        dep_list.add(dep); // 부서명 저장
+                        depcode_list.add(jsonObject.getString("code")); // code 저장
+                    }
+                    arrayAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_dropdown_item, dep_list);
+                    arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                    spinner.setAdapter(arrayAdapter);
+                    spinner.setPrompt("Department");
+                    spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                            DEPCODE = depcode_list.get(i);
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> adapterView) {
+                            Log.d("Log", spinner.getSelectedItem().toString());
+                        }
+                    });
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         };
-        request.setShouldCache(false);
-        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-        requestQueue.add(request);
-    }
 
-    private void processResponse(String response){ // json 데이터 파싱, response = 내가 요청한 get 값
-        try{
-            JSONArray jsonArray = new JSONArray(response);
-
-            for(int i = 0; i < jsonArray.length(); i++){
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                String dep = jsonObject.getString("name");
-                dep_list.add(dep); // 부서명 저장
-                depcode_list.add(jsonObject.getString("code")); // code 저장
-            }
-            arrayAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_dropdown_item, dep_list);
-            arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-            spinner.setAdapter(arrayAdapter);
-            spinner.setPrompt("Department");
-            spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                    DEPCODE = depcode_list.get(i);
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> adapterView) {
-                    Log.d("Log",spinner.getSelectedItem().toString());
-                }
-            });
-
-        } catch(Exception e){
-            e.printStackTrace();
-        }
-
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
+        DepartmentGet DepartmentGet = new DepartmentGet(JWT, responseListener);
+        RequestQueue queue = Volley.newRequestQueue(getContext());
+        queue.add(DepartmentGet);
     }
 }
