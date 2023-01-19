@@ -100,7 +100,7 @@ public class EmpFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String[] strChoiceItems = {"Yes", "No"};
-                builder.setTitle("Do you want to press the button?");
+                builder.setTitle("Do you want to press the 'START' button?");
                 builder.setItems(strChoiceItems, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int position) {
@@ -140,7 +140,7 @@ public class EmpFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String[] strChoiceItems = {"Yes", "No"};
-                builder.setTitle("Do you want to press the button?");
+                builder.setTitle("Do you want to press the 'END' button?");
                 builder.setItems(strChoiceItems, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int position) {
@@ -182,12 +182,12 @@ public class EmpFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 new AlertDialog.Builder(getContext())
-                        .setTitle("Application 종료")
-                        .setMessage("애플리케이션을 종료하시겠습니까?")
+                        .setTitle("Quits the application.")
+                        .setMessage("Are you sure you want to quit the application?")
                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Toast.makeText(getContext(), "애플리케이션이 종료되었습니다.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getContext(), "quits the application.", Toast.LENGTH_SHORT).show();
                                 ActivityCompat.finishAffinity(getActivity());
 
 
