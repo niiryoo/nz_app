@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,6 +38,7 @@ public class SignFragment extends Fragment {
     RadioButton admin_radio, emp_radio;
     TextView back, confirm_text;
     AlertDialog dialog;
+    ImageView back_sign;
 
     RequestQueue requestQueue;
 
@@ -115,6 +117,16 @@ public class SignFragment extends Fragment {
                         }
                     }
                 };
+            }
+        });
+
+
+        back_sign = rootView.findViewById(R.id.back_signUp);
+        back_sign.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity activity = (MainActivity) getActivity(); // 프래그먼트에서 메인엑티비티 접근
+                activity.FragmentView(6);
             }
         });
 
