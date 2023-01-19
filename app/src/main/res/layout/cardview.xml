@@ -38,17 +38,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:fontFamily="@font/sofiasans_bold"
                     android:gravity="start"
                     android:text="NAME"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/signum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:fontFamily="@font/sofiasans_regular"
                     android:gravity="start"
                     android:text="ID"
                     android:textSize="16sp" />

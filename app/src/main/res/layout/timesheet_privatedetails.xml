@@ -11,11 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:fontFamily="@font/sofiasans_bold"
+        android:fontFamily="sans-serif-medium"
         android:text="My Page"
         android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="24sp"
+        android:textSize="22dp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="10dp" />
@@ -152,11 +152,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:fontFamily="@font/sofiasans_bold"
+            android:fontFamily="sans-serif-medium"
             android:text="TimeSheet"
             android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="24sp" />
+            android:textSize="22dp"
+            android:textStyle="bold" />
 
         <ScrollView
             android:layout_width="match_parent"

@@ -12,12 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:fontFamily="sans-serif-medium"
         android:text="Employee Info"
-        android:textStyle="bold"
         android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="24sp"
-        android:fontFamily="@font/sofiasans_bold"
+        android:textSize="22sp"
+        android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="10dp" />
 
@@ -53,7 +53,7 @@
                     android:layout_width="92dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/sofiasans_regular"
+                    android:fontFamily=""
                     android:text="ID"
                     android:textStyle="bold"
                     android:textAlignment="textStart"
@@ -63,7 +63,7 @@
                     android:id="@+id/td_id"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
-                    android:fontFamily="@font/sofiasans_regular"
+                    android:fontFamily=""
                     android:textAlignment="textStart"
                     android:textSize="18sp"></TextView>
             </TableRow>
@@ -77,7 +77,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/sofiasans_regular"
+                    android:fontFamily=""
                     android:text="NAME"
                     android:textStyle="bold"
                     android:textAlignment="textStart"
@@ -87,7 +87,7 @@
                     android:id="@+id/td_name"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
-                    android:fontFamily="@font/sofiasans_regular"
+                    android:fontFamily=""
                     android:textAlignment="textStart"
                     android:textSize="18sp"></TextView>
             </TableRow>
@@ -101,7 +101,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/sofiasans_regular"
+                    android:fontFamily=""
                     android:text="EMAIL"
                     android:textStyle="bold"
                     android:textAlignment="textStart"
@@ -111,7 +111,7 @@
                     android:id="@+id/td_email"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
-                    android:fontFamily="@font/sofiasans_regular"
+                    android:fontFamily=""
                     android:textAlignment="textStart"
                     android:textSize="18sp"></TextView>
             </TableRow>
@@ -125,7 +125,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/sofiasans_regular"
+                    android:fontFamily=""
                     android:text="PHONE"
                     android:textStyle="bold"
                     android:textAlignment="textStart"
@@ -135,7 +135,7 @@
                     android:id="@+id/td_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
-                    android:fontFamily="@font/sofiasans_regular"
+                    android:fontFamily=""
                     android:textAlignment="textStart"
                     android:textSize="18sp"></TextView>
             </TableRow>
@@ -161,11 +161,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:fontFamily="@font/sofiasans_bold"
+            android:fontFamily="sans-serif-medium"
             android:text="TimeSheet"
             android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="24sp" />
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
         <ScrollView
             android:layout_width="match_parent"
