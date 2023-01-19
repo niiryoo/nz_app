@@ -47,7 +47,7 @@ public class EmpWorkInfoFragment extends Fragment {
     ImageView start_dateimg;
     ImageView end_dateimg;
     TextView start_et_date;
-    TextView end_et_date, backtext;
+    TextView end_et_date;
     Button searchbutton, addpersonbutton;
     ImageView back;
     MainActivity mainActivity;

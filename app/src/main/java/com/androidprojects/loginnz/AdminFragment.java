@@ -45,7 +45,7 @@ public class AdminFragment extends Fragment {
     ArrayAdapter<CharSequence> arrayAdapter;
     EditText note;
     TextView mypage, emp_info;
-    Button start, end, back;
+    Button start, end;
     Spinner spinner;
     String JWT, ID, DEPCODE = null;
     ImageView back_admin;
