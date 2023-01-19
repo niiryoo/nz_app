@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:textAlignment="center"
-    >
+    android:textAlignment="center">
 
     <TextView
         android:id="@+id/tv_details"
@@ -53,7 +52,6 @@
                     android:layout_width="92dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:fontFamily=""
                     android:text="ID"
                     android:textStyle="bold"
                     android:textAlignment="textStart"
@@ -63,7 +61,6 @@
                     android:id="@+id/td_id"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
-                    android:fontFamily=""
                     android:textAlignment="textStart"
                     android:textSize="16sp"></TextView>
             </TableRow>
@@ -77,7 +74,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:fontFamily=""
                     android:text="NAME"
                     android:textStyle="bold"
                     android:textAlignment="textStart"
@@ -87,7 +83,6 @@
                     android:id="@+id/td_name"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
-                    android:fontFamily=""
                     android:textAlignment="textStart"
                     android:textSize="16sp"></TextView>
             </TableRow>
@@ -101,7 +96,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:fontFamily=""
                     android:text="EMAIL"
                     android:textStyle="bold"
                     android:textAlignment="textStart"
@@ -111,7 +105,6 @@
                     android:id="@+id/td_email"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
-                    android:fontFamily=""
                     android:textAlignment="textStart"
                     android:textSize="16sp"></TextView>
             </TableRow>
@@ -125,7 +118,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:fontFamily=""
                     android:text="PHONE"
                     android:textStyle="bold"
                     android:textAlignment="textStart"
@@ -135,7 +127,6 @@
                     android:id="@+id/td_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
-                    android:fontFamily=""
                     android:textAlignment="textStart"
                     android:textSize="16sp"></TextView>
             </TableRow>
@@ -183,16 +174,14 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_ts"
         android:layout_width="match_parent"
-        android:layout_height="440dp"
-        tools:layout_editor_absoluteX="135dp"
-        tools:layout_editor_absoluteY="-214dp">
+        android:layout_height="400dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_dt_ok"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview_ts"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

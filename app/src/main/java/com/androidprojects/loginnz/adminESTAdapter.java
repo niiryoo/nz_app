@@ -1,6 +1,5 @@
 package com.androidprojects.loginnz;
 
-import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +22,7 @@ public class adminESTAdapter extends RecyclerView.Adapter<adminESTAdapter.ViewHo
     public adminESTAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View itemView = inflater.inflate(R.layout.cardview, parent, false);
-        return new ViewHolder(itemView);
+        return new adminESTAdapter.ViewHolder(itemView);
     }
 
     @Override
@@ -49,32 +48,36 @@ public class adminESTAdapter extends RecyclerView.Adapter<adminESTAdapter.ViewHo
 
 
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView ID, name, statustext;
-        ImageView userimg, statuscolor;
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        TextView name, email, phone;
+        String ID;
+        ImageView userimg;
         CardView cardView;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            ID = itemView.findViewById(R.id.signum);
             name = itemView.findViewById(R.id.name);
-            statustext = itemView.findViewById(R.id.statustext);
+            email = itemView.findViewById(R.id.cv_email);
+            phone = itemView.findViewById(R.id.phone_cv);
             userimg = itemView.findViewById(R.id.userimg);
-            statuscolor = itemView.findViewById(R.id.statuscolor);
 
             cardView = itemView.findViewById(R.id.cardview);
-            cardView.setOnClickListener(view -> {
-                MainActivity activity = (MainActivity) itemView.getContext();
-                activity.tempid(ID.getText().toString());
-                activity.FragmentView(9);
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MainActivity activity = (MainActivity) itemView.getContext();
+                    activity.tempid(ID);
+                    activity.FragmentView(9);
+                }
             });
         }
 
 
 
-        @SuppressLint("SetTextI18n")
         public void setItem(JSONObject item) throws JSONException {
-            ID.setText(item.getString("user_id"));
+            ID = item.getString("user_id");
             name.setText(item.getString("first_name")+" "+item.getString("last_name"));
+            email.setText(item.getString("email"));
+            phone.setText(item.getString("phone"));
         }
     }
 }
