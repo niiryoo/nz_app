@@ -139,8 +139,9 @@
         android:id="@+id/addperson"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_gravity="bottom"
         android:background="#64b0f6"
         android:text="Add employee"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        />
 </LinearLayout>
