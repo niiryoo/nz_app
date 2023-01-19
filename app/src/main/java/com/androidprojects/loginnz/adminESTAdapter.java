@@ -1,5 +1,6 @@
 package com.androidprojects.loginnz;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +23,7 @@ public class adminESTAdapter extends RecyclerView.Adapter<adminESTAdapter.ViewHo
     public adminESTAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View itemView = inflater.inflate(R.layout.cardview, parent, false);
-        return new adminESTAdapter.ViewHolder(itemView);
+        return new ViewHolder(itemView);
     }
 
     @Override
@@ -48,7 +49,7 @@ public class adminESTAdapter extends RecyclerView.Adapter<adminESTAdapter.ViewHo
 
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView ID, name, statustext;
         ImageView userimg, statuscolor;
         CardView cardView;
@@ -61,18 +62,16 @@ public class adminESTAdapter extends RecyclerView.Adapter<adminESTAdapter.ViewHo
             statuscolor = itemView.findViewById(R.id.statuscolor);
 
             cardView = itemView.findViewById(R.id.cardview);
-            cardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    MainActivity activity = (MainActivity) itemView.getContext();
-                    activity.tempid(ID.getText().toString());
-                    activity.FragmentView(9);
-                }
+            cardView.setOnClickListener(view -> {
+                MainActivity activity = (MainActivity) itemView.getContext();
+                activity.tempid(ID.getText().toString());
+                activity.FragmentView(9);
             });
         }
 
 
 
+        @SuppressLint("SetTextI18n")
         public void setItem(JSONObject item) throws JSONException {
             ID.setText(item.getString("user_id"));
             name.setText(item.getString("first_name")+" "+item.getString("last_name"));
