@@ -62,7 +62,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
                     android:textAlignment="textStart"
-                    android:textSize="15sp"></TextView>
+                    android:textSize="16dp"></TextView>
             </TableRow>
 
             <TableRow
@@ -84,7 +84,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
                     android:textAlignment="textStart"
-                    android:textSize="15sp"></TextView>
+                    android:textSize="16dp"></TextView>
             </TableRow>
 
             <TableRow
@@ -106,7 +106,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
                     android:textAlignment="textStart"
-                    android:textSize="15sp"></TextView>
+                    android:textSize="16dp"></TextView>
             </TableRow>
 
             <TableRow
@@ -128,7 +128,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
                     android:textAlignment="textStart"
-                    android:textSize="15sp"></TextView>
+                    android:textSize="16dp"></TextView>
             </TableRow>
 
 
