@@ -92,7 +92,7 @@ public class AdminFragment extends Fragment {
                                 public void onResponse(String response) {
                                     try {
                                         JSONObject jsonResponse = new JSONObject(response);
-                                        Toast.makeText(getContext(), jsonResponse.getString("start_time"), Toast.LENGTH_SHORT).show();
+                                        //Toast.makeText(getContext(), jsonResponse.getString("start_time"), Toast.LENGTH_SHORT).show();
                                         spinner.setVisibility(View.INVISIBLE);
                                         note.setVisibility(View.VISIBLE);
                                         end.setVisibility(View.VISIBLE);
@@ -133,7 +133,7 @@ public class AdminFragment extends Fragment {
                                 public void onResponse(String response) {
                                     try {
                                         JSONObject jsonResponse = new JSONObject(response);
-                                        Toast.makeText(getContext(), jsonResponse.getString("end_time"), Toast.LENGTH_SHORT).show();
+                                        //Toast.makeText(getContext(), jsonResponse.getString("end_time"), Toast.LENGTH_SHORT).show();
                                         spinner.setVisibility(View.VISIBLE);
                                         note.setVisibility(View.INVISIBLE);
                                         start.setVisibility(View.VISIBLE);
