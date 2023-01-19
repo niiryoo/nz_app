@@ -53,7 +53,8 @@
                     android:layout_marginLeft="10dp"
                     android:text="ID"
                     android:textAlignment="textStart"
-                    android:textSize="16sp"></TextView>
+                    android:textSize="16sp"
+                    android:textStyle="bold"></TextView>
 
                 <TextView
                     android:id="@+id/tv_pd_id"
@@ -74,7 +75,8 @@
                     android:layout_marginLeft="10dp"
                     android:text="NAME"
                     android:textAlignment="textStart"
-                    android:textSize="16sp"></TextView>
+                    android:textSize="16sp"
+                    android:textStyle="bold"></TextView>
 
                 <TextView
                     android:id="@+id/tv_pd_name"
@@ -95,7 +97,8 @@
                     android:layout_marginLeft="10dp"
                     android:text="EMAIL"
                     android:textAlignment="textStart"
-                    android:textSize="16sp"></TextView>
+                    android:textSize="16sp"
+                    android:textStyle="bold"></TextView>
 
                 <TextView
                     android:id="@+id/tv_pd_email"
@@ -116,7 +119,8 @@
                     android:layout_marginLeft="10dp"
                     android:text="PHONE"
                     android:textAlignment="textStart"
-                    android:textSize="16sp"></TextView>
+                    android:textSize="16sp"
+                    android:textStyle="bold"></TextView>
 
                 <TextView
                     android:id="@+id/tv_pd_phone"
