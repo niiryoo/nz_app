@@ -39,7 +39,6 @@ import java.util.Map;
 import java.util.TimeZone;
 
 public class EmpWorkInfoFragment extends Fragment {
-    String urlStr = "http://20.211.44.13:5000/profile/";
     RequestQueue requestQueue;
     adminESTAdapter adapter;
     RecyclerView recyclerView;
@@ -153,42 +152,27 @@ public class EmpWorkInfoFragment extends Fragment {
 
     }
     private void makeRequest() { // 미사용
-        StringRequest request = new StringRequest(Request.Method.GET, urlStr, new
-                Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        processResponse(response);
+        Response.Listener<String> responseListener = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONArray jsonArray = new JSONArray(response);
+                    if (jsonArray == null) {
+                        Toast.makeText(getActivity().getApplicationContext(), "null", Toast.LENGTH_LONG).show();
+                    } else {
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+                            adapter.addItem(jsonObject);
+                        }
+                        adapter.notifyDataSetChanged();
                     }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-            }
-        }) {
-
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map  params = new HashMap();
-                params.put("authorization",JWT);
-                return params;
+                } catch(JSONException e){
+                    e.printStackTrace();
+                }
             }
         };
-        request.setShouldCache(false);
-        requestQueue.add(request);
-    }
-    private void processResponse(String response) { //Json 데이터 파싱 // 미사용
-        try {
-            JSONArray jsonArray = new JSONArray(response);
-            if (jsonArray == null) {
-                Toast.makeText(getActivity().getApplicationContext(), "null", Toast.LENGTH_LONG).show();
-            } else {
-                for (int i = 0; i < jsonArray.length(); i++) {
-                    JSONObject jsonObject = jsonArray.getJSONObject(i);
-                    adapter.addItem(jsonObject);
-                }
-                adapter.notifyDataSetChanged();
-            }
-        } catch(JSONException e){
-            e.printStackTrace();
-        }
+        ProfileGet profileGet = new ProfileGet(JWT, responseListener);
+        RequestQueue queue = Volley.newRequestQueue(getContext());
+        queue.add(profileGet);
     }
 }

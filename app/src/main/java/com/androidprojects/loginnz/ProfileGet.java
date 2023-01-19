@@ -9,8 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ProfileGet extends StringRequest {
-    final static String url = "http://20.211.44.13:5000/profile/";
-    final static String searchurl = "http://20.211.44.13:5000/profile/?user=";
+    final static String url = "http://puni.mooo.com:5000/profile/";
+    final static String searchurl = "http://puni.mooo.com:5000/profile/?user=";
     String JWT = null;
     private Map<String, String> map;
 

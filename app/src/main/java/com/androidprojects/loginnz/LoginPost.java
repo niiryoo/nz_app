@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoginPost extends StringRequest {
-    final static String url = "http://20.211.44.13:5000/login/";
+    final static String url = "http://puni.mooo.com:5000/login/";
 
     private Map<String, String> map;
 

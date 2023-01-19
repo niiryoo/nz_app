@@ -9,8 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TimesheetGet extends StringRequest {
-    final static String url = "http://20.211.44.13:5000/timesheet/";
-    final static String searchurl = "http://20.211.44.13:5000/timesheet/?user=";
+    final static String url = "http://puni.mooo.com:5000/timesheet/";
+    final static String searchurl = "http://puni.mooo.com:5000/timesheet/?user=";
     String JWT = null;
     private Map<String, String> map;
     public TimesheetGet(String jwt, Response.Listener<String> listener) { // 모든 user에 대한 timesheet GET

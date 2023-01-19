@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class EndPost extends StringRequest {
-    final static String url = "http://20.211.44.13:5000/timesheet/";
+    final static String url = "http://puni.mooo.com:5000/timesheet/";
     String JWT = null;
     private Map<String, String> map;
 

@@ -9,8 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DepartmentGet extends StringRequest {
-    final static String url = "http://20.211.44.13:5000/department/";
-    final static String searchurl = "http://20.211.44.13:5000/department/?code=";
+    final static String url = "http://puni.mooo.com:5000/department/";
+    final static String searchurl = "http://puni.mooo.com:5000/department/?code=";
     String JWT = null;
     private Map<String, String> map;
 
