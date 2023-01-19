@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void FragmentView(int fragment){
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_right);
         switch(fragment){
             case 0 :
                 LoginFragment loginFragment = new LoginFragment();
