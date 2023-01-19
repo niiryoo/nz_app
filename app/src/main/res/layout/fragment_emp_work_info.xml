@@ -6,12 +6,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:gravity="center"
     android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-    </LinearLayout>
 
     <ImageView
         android:id="@+id/btn_back_workInfo"
@@ -141,6 +135,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:background="#64b0f6"
+        android:layout_marginTop="70dp"
         android:text="Add employee"
         android:textSize="15sp"
         />
