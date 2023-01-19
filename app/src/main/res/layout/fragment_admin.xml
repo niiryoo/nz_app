@@ -6,11 +6,12 @@
     tools:context=".EmpFragment">
 
     <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:src="@drawable/back"
         android:id="@+id/back_admin"
-        android:layout_marginTop="5dp" >
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp">
     </ImageView>
 
     <TextView
@@ -86,7 +87,6 @@
         android:layout_marginLeft="50dp"
         android:layout_marginTop="530dp"
         android:text="Employee Work Info"
-        android:textStyle="bold"
         android:textSize="14sp"/>
 
     <EditText
