@@ -29,6 +29,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:orientation="vertical"
                 tools:layout_weight="1">
 
@@ -37,15 +38,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
+                    android:fontFamily="@font/sofiasans_bold"
                     android:gravity="start"
                     android:text="NAME"
-                    android:textSize="16sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/signum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
+                    android:fontFamily="@font/sofiasans_regular"
                     android:gravity="start"
                     android:text="ID"
                     android:textSize="16sp" />

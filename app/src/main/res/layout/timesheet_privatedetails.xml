@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:fontFamily="@font/sofiasans_bold"
         android:text="My Page"
         android:textAlignment="center"
         android:textColor="#000000"
@@ -150,9 +151,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/sofiasans_bold"
             android:text="TimeSheet"
             android:textAlignment="center"
-            android:layout_marginTop="5dp"
             android:textColor="#000000"
             android:textSize="24sp" />
 
