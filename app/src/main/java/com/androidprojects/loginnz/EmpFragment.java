@@ -34,7 +34,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,7 +45,7 @@ public class EmpFragment extends Fragment {
     ArrayAdapter<CharSequence> arrayAdapter;
     Spinner spinner;
     EditText note;
-    TextView mypage;
+    TextView mypage, currentdate;
     Button start, end;
     String JWT, ID, DEPCODE = null;
     ImageView back_emp;
@@ -65,6 +67,22 @@ public class EmpFragment extends Fragment {
             }
         }
         checktimesheet(); // 데이터베이스에 start, end 레코드 예외처리
+
+        currentdate = rootView.findViewById(R.id.date);
+        long current = System.currentTimeMillis(); // 1970년 1월 1일부터 몇 밀리세컨드가 지났는지를 반환함
+        Date date = new Date(current);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String getTime = simpleDateFormat.format(date);
+        currentdate.setText(getTime);
+
+        /** Date date = new Date(now);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd-hh:mm:s:S");//형식 지정
+        String getTime1 = simpleDateFormat.format(date);
+        simpleDateFormat = new SimpleDateFormat("MM");//형식 지정
+        String getTime2 = simpleDateFormat.format(date);
+        simpleDateFormat = new SimpleDateFormat("M");//형식 지정
+        String getTime3 = simpleDateFormat.format(date);
+        textView.setText("yyyy-MM-dd-hh:mm:ss:SS : "+getTime1+"\nMM : "+getTime2+"\nM : "+getTime3);**/
 
         mypage = rootView.findViewById(R.id.myPage_amp);
         mypage.setOnClickListener(new View.OnClickListener() {

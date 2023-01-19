@@ -27,13 +27,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class AdminFragment extends Fragment {
     ArrayAdapter<CharSequence> arrayAdapter;
     EditText note;
-    TextView mypage, emp_info;
+    TextView mypage, emp_info, currentdate;
     Button start, end;
     Spinner spinner;
     String JWT, ID, DEPCODE = null;
@@ -56,6 +58,13 @@ public class AdminFragment extends Fragment {
             }
         }
         checktimesheet(); // 데이터베이스에 start, end 레코드 예외처리
+
+        currentdate = rootView.findViewById(R.id.date);
+        long current = System.currentTimeMillis(); // 1970년 1월 1일부터 몇 밀리세컨드가 지났는지를 반환함
+        Date date = new Date(current);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String getTime = simpleDateFormat.format(date);
+        currentdate.setText(getTime);
 
         mypage = rootView.findViewById(R.id.myPage_ad);
         mypage.setOnClickListener(new View.OnClickListener() {
