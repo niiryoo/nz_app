@@ -164,7 +164,7 @@ public class EmpFragment extends Fragment {
                                 }
                             };
 
-                            EndPost endpost = new EndPost(ID, JWT, note.toString(), responseListener);
+                            EndPost endpost = new EndPost(ID, JWT, note.getText().toString(), responseListener);
                             RequestQueue queue = Volley.newRequestQueue(getContext());
                             queue.add(endpost);
 

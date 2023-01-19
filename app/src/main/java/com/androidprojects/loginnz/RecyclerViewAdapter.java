@@ -13,12 +13,9 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.time.Month;
-import java.time.Year;
 import java.util.ArrayList;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
@@ -31,15 +28,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     // 아이템뷰 저장하는 뷰홀더 클래스
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView startTime, endTime, depart;
+        TextView startTime, endTime, depart, note;
         String department_name;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            startTime = itemView.findViewById(R.id.startTime);
-            endTime = itemView.findViewById(R.id.endTime);
-            depart = itemView.findViewById(R.id.depart_code);
+            startTime = itemView.findViewById(R.id.et_startTime);
+            endTime = itemView.findViewById(R.id.et_endTime);
+            depart = itemView.findViewById(R.id.eT_depart);
+            note = itemView.findViewById(R.id.et_note);
         }
 
         public void setItem(JSONObject item) throws JSONException  {
@@ -56,6 +54,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 endTime.setText(form3+" "+form4);
             }
             codetodepartment(item.getString("department_id"));
+
+            String notes = item.getString("notes");
+            note.setText(notes);
         }
 
         private void codetodepartment(String code){

@@ -84,8 +84,8 @@
         android:layout_marginLeft="50dp"
         android:layout_marginTop="370dp"
         android:ems="10"
+        android:hint="No issue."
         android:inputType="textPersonName"
-        android:text="No issue."
         android:visibility="invisible" />
 
 
