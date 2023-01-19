@@ -6,25 +6,23 @@
     tools:context=".EmpFragment">
 
     <ImageView
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:src="@drawable/back"
         android:id="@+id/back_admin"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp">
-    </ImageView>
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="20dp"
+        android:src="@drawable/back"></ImageView>
 
     <TextView
         android:id="@+id/myPage_ad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="315dp"
-        android:layout_marginTop="15dp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textSize="19dp"
+        android:layout_marginLeft="310dp"
+        android:layout_marginTop="20dp"
+        android:text="My Page"
         android:textAlignment="center"
-        android:text="My Page" />
+        android:textColor="@color/black"
+        android:textSize="19dp"
+        android:textStyle="bold" />
 
 
     <TextView
