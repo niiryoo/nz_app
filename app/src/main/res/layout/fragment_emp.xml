@@ -37,12 +37,11 @@
     <DigitalClock
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
         android:layout_marginTop="230dp"
-        android:layout_marginLeft="100dp"
         android:textColor="@color/black"
-        android:textStyle="bold"
         android:textSize="50sp"
-        />
+        android:textStyle="bold" />
 
     <Spinner
         android:id="@+id/spinner"
