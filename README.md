@@ -1,10 +1,10 @@
 # 📱nz_app
 
-> ### 강원대학교 SW 사업단 23 동계 해외 직무연수
-> #### 방문 국가 : 뉴질랜드 인버카길 (ILT 그룹)
+#### 강원대학교 SW 사업단 23 동계 해외 직무연수
+#### 방문 국가 : 뉴질랜드 인버카길 (ILT 그룹)
 
 
-## 👨‍💻프로젝트 소개
+### 👨‍💻프로젝트 소개
 ILT Kelvin Hotel의 직원 출/퇴근을 관리하는 모바일(안드로이드) 어플의 프로토타입을 개발
 
 
@@ -18,7 +18,7 @@ ILT Kelvin Hotel의 직원 출/퇴근을 관리하는 모바일(안드로이드)
 
 ### 💫Teck Stack & Tools
 
-#### MOBILE FRONTEND
+####  * MOBILE FRONTEND
 <div>
 <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=Android&logoColor=white">
 <img  src="https://img.shields.io/badge/java 11-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white">
